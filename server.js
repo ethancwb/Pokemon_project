@@ -7,7 +7,6 @@ var app = express()
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.listen(process.env.PORT || 8080, function () {
-    console.log('listen to port 8080')
 })
 
 app.get('/', function (req, res) {
@@ -20,17 +19,13 @@ app.get('/quotes', function (req, res) {
 })
 
 app.post('/quotes', function (req, res) {
-    console.log(req.body)
 })
 
 var connection
-console.log(process.env.JAWSDB_MARIA_URL)
-if (process.env.JAWSDB_URL) {
+if (process.env.JAWSDB_MARIA_URL) {
     connection = db.createConnection(process.env.JAWSDB_MARIA_URL)
-    console.log(connection)
 } else {
     //local connection
-    console.log('local')
     connection = db.createConnection({
         host: 'localhost',
         user: 'root',
