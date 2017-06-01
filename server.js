@@ -24,8 +24,10 @@ app.post('/quotes', function (req, res) {
 })
 
 var connection
+console.log(process.env.JAWSDB_URL)
 if (process.env.JAWSDB_URL) {
     connection = db.createConnection(process.env.JAWSDB_URL)
+    console.log(connection)
 } else {
     //local connection
     console.log('local')
