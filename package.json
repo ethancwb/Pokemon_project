@@ -1,0 +1,29 @@
+{
+  "name": "cs3200_final_project",
+  "version": "1.0.0",
+  "description": "Final project for database course",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "npm server.js",
+    "begin": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethancwb/cs3200_Final_Project.git"
+  },
+  "author": "wbC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ethancwb/cs3200_Final_Project/issues"
+  },
+  "homepage": "https://github.com/ethancwb/cs3200_Final_Project#readme",
+  "dependencies": {
+    "body-parser": "1.17.2",
+    "express": "4.15.3",
+    "mysql": "2.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "1.11.0"
+  }
+}
