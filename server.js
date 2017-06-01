@@ -23,12 +23,18 @@ app.post('/quotes', function (req, res) {
     console.log(req.body)
 })
 
-//local connection
-var connection = db.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'chenwenbin1017'
-})
+var connection
+if (process.env.JAWSDB_URL) {
+    connection = db.createConnection(process.env.JAWSDB_URL)
+} else {
+    //local connection
+    console.log('local')
+    connection = db.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'chenwenbin1017'
+    })
+}
 
 connection.connect(function (err) {
     if (err) throw err
