@@ -26,7 +26,7 @@ app.post('/quotes', function (req, res) {
 var connection
 console.log(process.env.JAWSDB_MARIA_URL)
 if (process.env.JAWSDB_URL) {
-    connection = db.createConnection(process.env.JAWSDB_URL)
+    connection = db.createConnection(process.env.JAWSDB_MARIA_URL)
     console.log(connection)
 } else {
     //local connection
@@ -38,7 +38,4 @@ if (process.env.JAWSDB_URL) {
     })
 }
 
-connection.connect(function (err) {
-    if (err) throw err
-    console.log('Connected!')
-})
+connection.connect()
