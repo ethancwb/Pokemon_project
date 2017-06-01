@@ -6,7 +6,7 @@ var app = express()
 
 app.use(bodyParser.urlencoded({extended: true}))
 
-app.listen(8080, function () {
+app.listen(process.env.PORT || 8080, function () {
     console.log('listen to port 8080')
 })
 
