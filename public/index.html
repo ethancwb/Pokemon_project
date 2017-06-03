@@ -4,13 +4,47 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="static/style.css" rel="stylesheet"/>
     </head>
+
     <body>
-        <h1>yo~~~~</h1>
-        <form action="/quotes" method="POST">
-          <input type="text" placeholder="name" name="name">
-          <input type="text" placeholder="quote" name="quote">
-          <button type="submit">Submit</button>
-        </form>
+        <!-- header -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <h3>I'm header</h3>
+                </div>
+            </div>
+        </nav>
+
+        <!-- body -->
+        <div class="main-container container">
+            <div class="video-background">
+                <div class="video-foreground">
+                  <iframe src="https://www.youtube.com/embed/ze6zcaemf7M?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=ze6zcaemf7M" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="content-container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1>yo~~~~</h1>
+                        <form action="/quotes" method="POST">
+                          <input type="text" placeholder="name" name="name">
+                          <input type="text" placeholder="quote" name="quote">
+                          <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <nav class="navbar navbar-default navbar-fixed-bottom" ng-controller="profileController">
+            <div class="container-fluid">
+                <div class="pull-right">
+                    <h3>I'm footer</h3>
+                </div>
+            </div>
+        </nav>
     </body>
-</html?
+</html>
