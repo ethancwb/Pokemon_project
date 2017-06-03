@@ -5826,16 +5826,16 @@ button.close {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  background-color: rgba(208, 211, 212, 0.8); }
+  background-color: rgba(208, 211, 212, 0.6); }
 
 .content-container {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
   font-size: 1em;
-  padding: 65px 5% 65px 5%;
-  margin: 0 3% 0 3%;
-  background-color: rgba(240, 240, 240, 0.7); }
+  padding: 0px 5% 0px 5%;
+  margin: 65px 3% 65px 3%;
+  background-color: rgba(230, 230, 230, 0.7); }
 
 .background-container {
   position: fixed;
@@ -5847,7 +5847,7 @@ button.close {
   z-index: -100; }
 
 .navbar {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.9);
   border-bottom: none;
   border-top: none; }
 
