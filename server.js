@@ -12,26 +12,6 @@ app.listen(process.env.PORT || 8080, function () {
     console.log('listen to port 8080')
 })
 
-app.get('/', function (req, res) {
-    P.getPokemonByName('eevee').then(function (response) {
-         console.log(response);
-       })
-       .catch(function(error) {
-         console.log('There was an ERROR: ', error);
-      });
-    res.sendFile(path.join(__dirname, '/public/index.html'))
-})
-
-app.get('/quotes', function (req, res) {
-    path.join()
-    res.sendFile(path.join(__dirname, '/public/index.html'))
-})
-
-app.post('/quotes', function (req, res) {
-    console.log(req.body)
-
-})
-
 app.use(express.static('public'))
 
 var connection
@@ -47,3 +27,18 @@ if (process.env.JAWSDB_MARIA_URL) {
 }
 
 connection.connect()
+
+require('./public/app.js')(app, db, P)
+
+// app.get('/', function (req, res) {
+//     P.getPokemonByName('eevee').then(function (response) {
+//          console.log(response);
+//        })
+//        .catch(function(error) {
+//          console.log('There was an ERROR: ', error);
+//       });
+//     res.sendFile(path.join(__dirname, '/public/index.html'))
+// })
+
+// var icon = PkSpr.decorate({slug: "pikachu"}); // see docs for more attributes
+// console.log(icon);
