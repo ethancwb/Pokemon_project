@@ -7,6 +7,10 @@
         var model = this
 
         PkSpr.process_dom();
+        // 
+        // $.getJSON('http://pokeapi.co/api/v2/stat/1/', function(data) {
+        //     console.log(data)
+        // })
 
         model.sendUsernamePassword = (function (username, password) {
             var url = '/'
