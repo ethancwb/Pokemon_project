@@ -2,7 +2,11 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: rgba(208, 211, 212,0.6   );
+    overflow: scroll;
+    background-image: url('source_image/backgroud-1.png');
+    background-size: contain;
+    // background-color: rgba(208, 211, 212,0.8);
+    // background-image: url('source_image/backgroud.jpg');
 }
 
 .content-container {
@@ -10,7 +14,37 @@
     font-size: 1em;
     padding: 0px 5% 0px 5%;
     margin: 65px 3% 65px 3%;
-    background-color: rgba(230, 230, 230,0.7);
+    // overflow: scroll;
+    // background-color: rgba(230, 230, 230,0.7);
+
+    .list-group {
+        margin-bottom: 0px;
+    }
+}
+
+.homepage-container {
+    .navbar {
+        background-color: rgba(255,255,255,0.1) !important;
+        position: absolute;
+    }
+}
+
+.profile-container {
+    width: 80%;
+    align-self: center;
+    background-color: rgba(245, 245, 245,0.8);
+    flex: 1;
+    margin: 65px 0% 65px 0%;
+    overflow: scroll;
+}
+
+.form-control {
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.login-container {
+    margin-top: 15%;
 }
 
 .background-container {
@@ -20,13 +54,33 @@
     bottom: 0;
     left: 0;
     overflow: hidden;
-    z-index: -100;
 }
 
 .navbar {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-bottom: none;
-    border-top: none;
+    background-color: rgb(255, 255, 255) !important;
+}
+
+.element-button {
+
+}
+
+.element-image-first {
+    margin-top: 40px;
+    &:hover {
+        border: outset;
+    }
+}
+
+.element-image {
+    margin-left: 25px;
+    margin-top: 40px;
+    &:hover {
+        border: outset;
+    }
+}
+
+.element-container {
+    margin-top: 15%;
 }
 
 // - - - - - - - - - - - - - - - Video Part - - - - - - - - - - - - - - -
@@ -67,4 +121,43 @@
 }
 @media all and (max-width: 500px) {
 .vid-info .acronym { display: none; }
+}
+
+// - - - - - - - - - - - - - - - SearchBar Part - - - - - - - - - - - - - - -
+.flickr-search-container {
+
+    margin-top: 3%;
+
+    .container-search-field {
+      vertical-align: middle;
+      white-space: nowrap;
+      position: relative;
+
+      input {
+          width: 80vw;
+          height: 150px;
+          background: #fffaf0;
+          border: none;
+          font-size: 10pt;
+          float: left;
+          color: #63717f;
+          padding-left: 45px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+
+          &:hover {
+              background-color: white;
+          }
+        }
+
+        .icon {
+          position: absolute;
+          top: 50%;
+          margin-left: 17px;
+          margin-top: 64px;
+          z-index: 1;
+          color: #4f5b66;
+        }
+    }
 }
