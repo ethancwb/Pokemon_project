@@ -3,7 +3,7 @@
     position: absolute !important;
     height: 12vh;
     width: 30vw;
-    top: 22vh;
+    top: 23vh;
     float: left;
 }
 
@@ -87,7 +87,7 @@
 .collection-container {
     // border: inset;
     border: groove;
-    min-height: 50vh;
+    min-height: 58vh;
 }
 
 .options-container {
@@ -144,7 +144,7 @@
         left: 90vw;
         height: 10vh;
         width: 10vw;
-        font-size: 2em;
+        font-size: 1.5em;
         border: outset;
         border-width: 0.2px;
         border-top: none;
@@ -155,9 +155,11 @@
         padding-top: 3vh;
 
         &:hover {
+            background-color: rgba(240, 240, 240, 0.8);
             border-width: 3px;
             border-top: 3px !important;
             border-bottom: 3px !important;
+            text-decoration: none;
         }
     }
 }

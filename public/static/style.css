@@ -5899,13 +5899,23 @@ button.close {
 .navbar {
   background-color: white !important; }
 
+.element-button:hover .element-expansion {
+  visibility: visible;
+  opacity: 1; }
+
 .element-image-first {
   margin-top: 40px; }
   .element-image-first:hover {
     border: outset; }
 
+.element-expansion {
+  background-color: rgba(240, 240, 240, 0.8);
+  visibility: hidden;
+  height: 60vh;
+  width: inherit;
+  opacity: 0; }
+
 .element-image {
-  margin-left: 25px;
   margin-top: 40px; }
   .element-image:hover {
     border: outset; }
@@ -5992,7 +6002,7 @@ button.close {
   position: absolute !important;
   height: 12vh;
   width: 30vw;
-  top: 22vh;
+  top: 23vh;
   float: left; }
 
 .top-logo {
@@ -6053,7 +6063,7 @@ button.close {
 
 .collection-container {
   border: groove;
-  min-height: 50vh; }
+  min-height: 58vh; }
 
 .options-container {
   border: groove;
@@ -6096,7 +6106,7 @@ button.close {
   left: 90vw;
   height: 10vh;
   width: 10vw;
-  font-size: 2em;
+  font-size: 1.5em;
   border: outset;
   border-width: 0.2px;
   border-top: none;
@@ -6106,9 +6116,11 @@ button.close {
   text-align: center;
   padding-top: 3vh; }
   .homepage-logo-dressings .homepage-btn:hover {
+    background-color: rgba(240, 240, 240, 0.8);
     border-width: 3px;
     border-top: 3px !important;
-    border-bottom: 3px !important; }
+    border-bottom: 3px !important;
+    text-decoration: none; }
 
 .table-container {
   display: block !important;

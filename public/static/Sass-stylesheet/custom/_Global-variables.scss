@@ -61,7 +61,10 @@
 }
 
 .element-button {
-
+    &:hover .element-expansion {
+        visibility: visible;
+        opacity: 1;
+    }
 }
 
 .element-image-first {
@@ -71,8 +74,15 @@
     }
 }
 
+.element-expansion {
+    background-color: rgba(240, 240, 240, 0.8);
+    visibility: hidden;
+    height: 60vh;
+    width: inherit;
+    opacity: 0;
+}
+
 .element-image {
-    margin-left: 25px;
     margin-top: 40px;
     &:hover {
         border: outset;
