@@ -5,8 +5,9 @@
 
     function PPController ($http, $location, $window) {
         var model = this
+
         PkSpr.process_dom();
-        //
+        // 
         // $.getJSON('http://pokeapi.co/api/v2/stat/1/', function(data) {
         //     console.log(data)
         // })
@@ -26,7 +27,7 @@
                             model.message = "Wrong username & password"
                         }
         })
-        
+
         model.disconnect = (function () {
             var url = '/database'
             return $http.get(url)
