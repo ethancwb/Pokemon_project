@@ -1,5 +1,4 @@
 TODO:
-1. Search Bar -> Search Pokemon by Name / ID.
 2. Edit user pokemons -> Allow user to remove a pokemon.
    Possible solution: Create a new page, render the list of user's pokemons -> delete one by one.
 3. Edit battle team -> Allow user to update (favorite/unfavorite) his/her battle team.
