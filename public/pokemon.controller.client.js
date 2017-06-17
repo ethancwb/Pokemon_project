@@ -73,6 +73,18 @@
                             return err;
                         }
         }
+
+        model.removePokemon = function (id) {
+            var url = '/deletePokemon/' + id
+            var uid = $routeParams.userId;
+            var userId = {
+                userId: uid
+            };
+            return $http.delete(url)
+                        .then(function (response) {
+                            initUserPokemons(userId)
+                        })
+        }
     }
 
     function SearchPokemonController ($http, $routeParams, $location, $window, $scope) {

@@ -153,6 +153,16 @@ module.exports = function (app, connection, P) {
         })
     });
 
+    app.delete('/deletePokemon/:ownsId', function (req, res) {
+        var oid = req.params['ownsId']
+        connection.query('CALL delete_pokemon(' + oid + ');', function (err, rows) {
+            if (err) {
+                res.sendStatus(404)
+            }
+            res.sendStatus(200)
+        })
+    })
+
     // function getAllName() {
     //     for (i = 300; i < 310; i++) {
     //         P.getPokemonByName(i)
