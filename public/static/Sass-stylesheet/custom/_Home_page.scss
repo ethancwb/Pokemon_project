@@ -156,9 +156,7 @@
 
         &:hover {
             background-color: rgba(240, 240, 240, 0.8);
-            border-width: 3px;
-            border-top: 3px !important;
-            border-bottom: 3px !important;
+            border-left: none;
             text-decoration: none;
         }
     }

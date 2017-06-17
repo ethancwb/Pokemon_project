@@ -93,6 +93,15 @@
                 }
         }
 
+        model.search = function (val) {
+            if (val === '' || val === null || val === undefined) {
+                model.error = "search field can not be empty!"
+                return
+            } else {
+                $location.url('/searchResult/' + val)
+            }
+        }
+
         searchPokemonByType()
     }
 
@@ -152,30 +161,13 @@
 
         }
 
-        // model.sendUsernamePassword = (function (username, password) {
-        //     var url = '/'
-        //     var user = {username: username,
-        //                 password: password}
-        //     return $http.post(url, user)
-        //                 .then(login, error)
-        //                 function login (accept) {
-        //                     if (accept !== null) {
-        //                         $window.location.href = '/database.html'
-        //                     }
-        //                 }
-        //                 function error (err) {
-        //                     model.message = "Wrong username & password"
-        //                 }
-        // })
-        //
-        // model.disconnect = (function () {
-        //     var url = '/database'
-        //     return $http.get(url)
-        //                 .then(logout)
-        //                 function logout (out) {
-        //                     $window.location.href = '/'
-        //                 }
-        // })
-
+        model.search = function (val) {
+            if (val === '' || val === null || val === undefined) {
+                model.error = "search field can not be empty!"
+                return
+            } else {
+                $location.url('/searchResult/' + val)
+            }
+        }
     }
 })();
