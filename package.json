@@ -19,8 +19,8 @@
   },
   "homepage": "https://github.com/ethancwb/cs3200_Final_Project#readme",
   "dependencies": {
-    "body-parser": "1.17.2",
-    "express": "4.15.3",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
     "mysql": "2.13.0",
     "pokedex-promise-v2": "3.0.3"
   },

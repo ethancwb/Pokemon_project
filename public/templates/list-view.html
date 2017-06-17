@@ -42,7 +42,7 @@
                       <th>Image</th>
                       <th>Name</th>
                       <th>Pokedex No.</th>
-                      <th>Attribute</th>
+                      <th>Type</th>
                       <th>Base_HP</th>
                       <th>Base_Attack</th>
                       <th>Base_Defence</th>
@@ -52,41 +52,17 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td><div class="pkspr pkmn-pikachu color-shiny"></div></td>
-                      <td>Pikachu</td>
-                      <td>No.073</td>
-                      <td>Light</td>
-                      <td>23</td>
-                      <td>15</td>
-                      <td>12</td>
-                      <td>15</td>
-                      <td>12</td>
-                      <td>9</td>
-                    </tr>
-                    <tr>
-                        <td><div class="pkspr pkmn-bulbasaur color-shiny"></div></td>
-                        <td>bulbasaur</td>
-                        <td>No.001</td>
-                        <td>Grass</td>
-                        <td>23</td>
-                        <td>15</td>
-                        <td>12</td>
-                        <td>15</td>
-                        <td>12</td>
-                        <td>9</td>
-                    </tr>
-                    <tr>
-                        <td><div class="pkspr pkmn-charmander color-shiny"></div></td>
-                        <td>charmander</td>
-                        <td>No.007</td>
-                        <td>Fire</td>
-                        <td>23</td>
-                        <td>15</td>
-                        <td>12</td>
-                        <td>15</td>
-                        <td>12</td>
-                        <td>9</td>
+                    <tr ng-repeat="pokemon in model.pokemons">
+                      <td><img ng-src="https://raw.githubusercontent.com/msikma/pokesprite/master/icons/pokemon/regular/{{ pokemon.poke_name }}.png"></td>
+                      <td>{{ pokemon.poke_name }}</td>
+                      <td>{{ pokemon.poke_id }}</td>
+                      <td>{{ pokemon.poke_type }}</td>
+                      <td>{{ pokemon.hp }}</td>
+                      <td>{{ pokemon.attack }}</td>
+                      <td>{{ pokemon.defense }}</td>
+                      <td>{{ pokemon.sp_attack }}</td>
+                      <td>{{ pokemon.sp_defense }}</td>
+                      <td>{{ pokemon.speed }}</td>
                     </tr>
                   </tbody>
                 </table>
