@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="profile-inner-container">
-                    <h1>Welcome, Pokemon Trainer:</h1>
+                    <h1>Welcome, Pokemon Trainer</h1>
                     <div class="personal-info-container">
                         <div class="row">
                             <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
@@ -40,14 +40,14 @@
                     <div class="option-panel-container">
                         <div class="row">
                             <div class="col-xs-12 col-sm-6">
-                                <div class="split-line">Your Collections</div>
+                                <div class="split-line">Your Collection</div>
                                 <div class="collection-container">
                                     <div class="personal-all-collection">
                                         <h3>Your Pokemons:</h3>
                                         <div class="all-collections">
                                             <div class="row">
                                                 <div ng-repeat="pokemon in model.userPokemons" class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                                    <img ng-src="https://raw.githubusercontent.com/msikma/pokesprite/master/icons/pokemon/regular/{{ pokemon.poke_name }}.png">
+                                                    <a ng-click="model.add2Team(pokemon.user_id, pokemon.owns_id)" class="element-button"><img src="https://raw.githubusercontent.com/msikma/pokesprite/master/icons/pokemon/regular/{{ pokemon.poke_name }}.png"></a>
                                                     <p>{{ pokemon.poke_name }}</p>
                                                 </div>
                                             </div>
@@ -57,7 +57,7 @@
                                         <h3> Battle Team: </h3>
                                         <div class="team">
                                             <div ng-repeat="pokemon in model.battlePokemons" class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                                <img ng-src="https://raw.githubusercontent.com/msikma/pokesprite/master/icons/pokemon/regular/{{ pokemon.poke_name }}.png">
+                                                <a ng-click="model.add2Team(pokemon.user_id, pokemon.owns_id)" class="element-button"><img ng-src="https://raw.githubusercontent.com/msikma/pokesprite/master/icons/pokemon/regular/{{ pokemon.poke_name }}.png"></a>
                                                 <p>{{ pokemon.poke_name }}</p>
                                             </div>
                                         </div>
@@ -70,7 +70,6 @@
                                     <a ng-click="model.addNewPokemon()"
                                        class="btn btn-info btn-significant btn-block">Catch New Pokemons!</a>
                                     <a class="btn btn-info btn-significant btn-block">Edit Pokemons!</a>
-                                    <a class="btn btn-info btn-significant btn-block">Update Team!</a>
                                     <a class="btn btn-info btn-significant btn-block">Join A Battle!</a>
                                     <!--<a class="btn btn-info btn-block">Create team</a>-->
                                     <!--<a class="btn btn-info btn-block">Delete team</a>-->
