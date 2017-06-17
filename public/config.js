@@ -15,14 +15,14 @@
                         controller:'PPController',
                         controllerAs: 'model'
                     })
-                    .when('/:uid/profile', {
+                    .when('/user/:userId', {
                         templateUrl:'templates/user_profile.html',
-                        controller:'PPController',
+                        controller:'UserController',
                         controllerAs: 'model'
                     })
-                    .when('/searchResult', {
+                    .when('/searchResult/:type', {
                         templateUrl:'templates/list-view.html',
-                        controller:'PPController',
+                        controller:'SearchPokemonController',
                         controllerAs: 'model'
                     })
                     .when('/:uid/battle', {

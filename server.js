@@ -8,6 +8,8 @@ var P = new Pokedex()
 process.env.UV_THREADPOOL_SIZE = 128;
 
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 app.listen(process.env.PORT || 8080, function () {
     console.log('listen to port 8080')
@@ -15,18 +17,18 @@ app.listen(process.env.PORT || 8080, function () {
 
 app.use(express.static('public'))
 
-// var connection
-// if (process.env.JAWSDB_MARIA_URL) {
-//     connection = db.createConnection(process.env.JAWSDB_MARIA_URL)
-// } else {
-//     //local connection
-//     connection = db.createConnection({
-//         host: 'localhost',
-//         user: 'root',
-//         password: 'chenwenbin1017',
-//         database: 'pokemon_fight'
-//     })
-// }
+var connection
+if (process.env.JAWSDB_MARIA_URL) {
+    connection = db.createConnection(process.env.JAWSDB_MARIA_URL)
+} else {
+    //local connection
+    // connection = db.createConnection({
+    //     host: 'localhost',
+    //     user: 'root',
+    //     password: 'phfandzjx',
+    //     database: 'pokemon_fight'
+    // })
+}
 
 var connection = db.createConnection("mysql://m56vff77rb877g2t:cby2rja1vlopxflt@thzz882efnak0xod.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/m4wf5ifdowrsox28")
 
@@ -46,3 +48,7 @@ require('./public/app.js')(app, connection, P)
 
 // var icon = PkSpr.decorate({slug: "pikachu"}); // see docs for more attributes
 // console.log(icon);
+// connection.query("SELECT * FROM pokemons", function (err, result) {
+//     if (err) throw err;
+//     console.log(result);
+// });
