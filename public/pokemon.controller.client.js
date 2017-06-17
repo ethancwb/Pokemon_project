@@ -6,11 +6,11 @@
         .controller('UserController', UserController);
 
     function UserController ($http, $routeParams, $location, $window, $scope) {
-        var vm = this;
-        vm.initProfile = initProfile;
-        vm.initUserPokemons = initUserPokemons;
-        vm.initUserBattleTeam = initUserBattleTeam;
-        vm.addNewPokemon = addNewPokemon;
+        var model = this;
+        model.initProfile = initProfile;
+        model.initUserPokemons = initUserPokemons;
+        model.initUserBattleTeam = initUserBattleTeam;
+        model.addNewPokemon = addNewPokemon;
 
 
         function initUserBattleTeam(userId) {
@@ -18,7 +18,7 @@
             return $http.post(url, userId)
                 .then(getUserBattleTeam, error)
                 function getUserBattleTeam (response) {
-                    vm.battlePokemons = response.data[0];
+                    model.battlePokemons = response.data[0];
                 }
                 function error (err) {
                 return err;
@@ -31,7 +31,7 @@
             return $http.post(url, userId)
                 .then(getUserPokemons, error)
                     function getUserPokemons (response) {
-                        vm.userPokemons = response.data[0];
+                        model.userPokemons = response.data[0];
                         initUserBattleTeam(userId);
                     }
                     function error (err) {
@@ -41,14 +41,14 @@
 
         function initProfile() {
             var url = '/getUserById';
-            vm.uid = $routeParams.userId;
+            model.uid = $routeParams.userId;
             var userId = {
-                userId: vm.uid
+                userId: model.uid
             };
             return $http.post(url, userId)
                 .then(getUserById, error)
             function getUserById(response) {
-                vm.user = response.data[0][0];
+                model.user = response.data[0][0];
                 initUserPokemons(userId);
             }
             function error(err) {
@@ -72,15 +72,12 @@
                         function error(err) {
                             return err;
                         }
-
-
-
         }
     }
 
     function SearchPokemonController ($http, $routeParams, $location, $window, $scope) {
-        var vm = this;
-        vm.searchPokemonByType = searchPokemonByType;
+        var model = this;
+        model.searchPokemonByType = searchPokemonByType;
 
         function searchPokemonByType () {
             var url = '/getPokemonByType';
@@ -89,7 +86,7 @@
             return $http.post(url, pokemon_type)
                 .then(renderList, error)
                 function renderList (response) {
-                    vm.pokemons = response.data[0];
+                    model.pokemons = response.data[0];
                 }
                 function error(err) {
                     return err;
@@ -100,12 +97,11 @@
     }
 
     function PPController ($http, $routeParams, $location, $window, $scope) {
-        var vm = this;
-        vm.register = register;
-        vm.login = login;
+        var model = this;
+        model.register = register;
+        model.login = login;
 
-
-        // 
+        //
         // $.getJSON('http://pokeapi.co/api/v2/stat/1/', function(data) {
         //     console.log(data)
         // })
@@ -133,11 +129,10 @@
                     $location.url("/user/" + response.data[0][0].user_id);
                 }
                 function error(err) {
-                    vm.error = err.data;
+                    model.error = err.data;
                 }
 
         }
-
 
         function register (username, password, rePassword) {
             var url = '/registeration';
@@ -156,8 +151,6 @@
                 }
 
         }
-
-
 
         // model.sendUsernamePassword = (function (username, password) {
         //     var url = '/'
