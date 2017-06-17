@@ -11,18 +11,20 @@
         model.initUserPokemons = initUserPokemons;
         model.initUserBattleTeam = initUserBattleTeam;
         model.addNewPokemon = addNewPokemon;
+        model.add2Team = add2Team;
+
 
 
         function initUserBattleTeam(userId) {
             var url = '/initUserBattleTeam';
             return $http.post(url, userId)
-                .then(getUserBattleTeam, error)
-                function getUserBattleTeam (response) {
-                    model.battlePokemons = response.data[0];
-                }
-                function error (err) {
-                return err;
-                }
+                .then(getUserBattleTeam, error);
+                    function getUserBattleTeam (response) {
+                        model.battlePokemons = response.data[0];
+                    }
+                    function error (err) {
+                        return err;
+                    }
 
         }
 
@@ -37,6 +39,23 @@
                     function error (err) {
                         return err;
                     }
+        }
+
+        function add2Team(pokemonOwnsUserId, pokemonOwnsId) {
+            console.log('length is: ' + model.battlePokemons.length);
+            var url = '/add2Team';
+            var ownsId = {
+                userId: pokemonOwnsUserId,
+                ownsId: pokemonOwnsId
+            };
+            return $http.post(url, ownsId)
+                    .then(updateUserPokemon, error);
+                function updateUserPokemon(response) {
+                    initProfile()
+                }
+                function error(err) {
+                    return err;
+                }
         }
 
         function initProfile() {

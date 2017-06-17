@@ -1,5 +1,17 @@
 module.exports = function (app, connection, P) {
 
+
+    app.post('/add2Team', function(req, res) {
+        var ownsId = req.body.ownsId;
+        var userId = req.body.userId;
+        connection.query('CALL update_favirote(' + userId + ", " + ownsId + ');',function(err,rows) {
+            if (err) {
+                res.sendStatus(404)
+            }
+            res.json(rows)
+        })
+    });
+
     app.post('/generateAPokemon', function(req, res) {
         var uid = req.body.uid;
         var pid = req.body.pid;
