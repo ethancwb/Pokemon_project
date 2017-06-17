@@ -5,7 +5,7 @@ TODO:
 3. Edit battle team -> Allow user to update (favorite/unfavorite) his/her battle team.
    Possible solution: Create a new page, render the list of user's favorite pokemons -> update one by one.
 4. Battle System.
-5. Debugs.
+5. Debugs. (Header picture not showing correctly online)
 
 
 
