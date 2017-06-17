@@ -28,11 +28,11 @@
                             <div class="col-xs-12 col-sm-6 col-md-7 col-lg-8">
                                 <ul class="list-group">
                                     <label for="traniner_id">Trainer_id</label>
-                                    <input class="list-group-item" value= '{{model.user.user_id}}' id="traniner_id"></input>
+                                    <input class="list-group-item" value= '{{model.user.user_id}}' id="traniner_id" readonly></input>
                                     <label for="username">Username</label>
-                                    <input class="list-group-item" value={{model.user.user_name}} id="username"></input>
+                                    <input class="list-group-item" value={{model.user.user_name}} id="username" readonly></input>
                                     <label for="data">Current tier</label>
-                                    <input class="list-group-item" value={{model.user.tier}} id="tire"></input>
+                                    <input class="list-group-item" value={{model.user.tier}} id="tire" readonly></input>
                                 </ul>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                                     <a ng-click="model.addNewPokemon()"
                                        class="btn btn-info btn-significant btn-block">Catch New Pokemons!</a>
                                        <a href="#!/user/{{model.uid}}/pokemons" class="btn btn-info btn-significant btn-block">Edit Pokemons!</a>
-                                    <a class="btn btn-info btn-significant btn-block">Join A Battle!</a>
+                                    <a href="#!/user/{{model.uid}}/battle" class="btn btn-info btn-significant btn-block">Join A Battle!</a>
                                     <!--<a class="btn btn-info btn-block">Create team</a>-->
                                     <!--<a class="btn btn-info btn-block">Delete team</a>-->
                                 </div>

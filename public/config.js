@@ -25,7 +25,7 @@
                         controller:'SearchPokemonController',
                         controllerAs: 'model'
                     })
-                    .when('/:userId/battle', {
+                    .when('/user/:userId/battle', {
                         templateUrl:'templates/battle.html',
                         controller:'BattleController',
                         controllerAs: 'model'
