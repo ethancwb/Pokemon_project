@@ -5878,8 +5878,7 @@ button.close {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  margin: 65px 0% 65px 0%;
-  overflow: scroll; }
+  margin: 65px 0% 65px 0%; }
 
 .form-control {
   height: 60px;
@@ -5906,6 +5905,7 @@ button.close {
 .element-image-first {
   margin-top: 40px; }
   .element-image-first:hover {
+    border-color: transparent !important;
     border: outset; }
 
 .element-expansion {
@@ -5918,10 +5918,29 @@ button.close {
 .element-image {
   margin-top: 40px; }
   .element-image:hover {
+    border-color: transparent !important;
     border: outset; }
 
 .element-container {
   margin-top: 15%; }
+
+.user_pokemon_container {
+  margin-top: 50px; }
+
+.user_pokemon_panel {
+  height: 120px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0px 20px 0px 40px; }
+  .user_pokemon_panel:hover {
+    background-color: rgba(232, 232, 232, 0.8); }
+
+.pokemen_details_container {
+  padding-top: 5px; }
+
+.resize-image {
+  width: 120px;
+  height: 120px; }
 
 .background-video {
   position: absolute;
@@ -6063,7 +6082,7 @@ button.close {
 
 .collection-container {
   border: groove;
-  min-height: 58vh; }
+  min-height: 65vh; }
 
 .options-container {
   border: groove;
@@ -6074,7 +6093,7 @@ button.close {
     padding-top: 40px; }
 
 .btn-significant {
-  height: 160px !important;
+  height: 165px !important;
   padding-top: 70px !important; }
 
 .personal-all-collection {
@@ -6092,7 +6111,7 @@ button.close {
 
 .team {
   background-color: rgba(255, 255, 255, 0.8);
-  min-height: 8vh;
+  min-height: 12vh;
   padding-top: 25px; }
 
 .homepage-logo {

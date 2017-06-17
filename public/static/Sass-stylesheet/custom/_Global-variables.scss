@@ -14,8 +14,6 @@
     font-size: 1em;
     padding: 0px 5% 0px 5%;
     margin: 65px 3% 65px 3%;
-    // overflow: scroll;
-    // background-color: rgba(230, 230, 230,0.7);
     .list-group {
         margin-bottom: 0px;
     }
@@ -34,7 +32,6 @@
     background-color: rgba(245, 245, 245,0.8);
     flex: 1;
     margin: 65px 0% 65px 0%;
-    overflow: scroll;
 }
 
 .form-control {
@@ -69,6 +66,7 @@
 .element-image-first {
     margin-top: 40px;
     &:hover {
+        border-color: transparent !important;
         border: outset;
     }
 }
@@ -84,12 +82,37 @@
 .element-image {
     margin-top: 40px;
     &:hover {
+        border-color: transparent !important;
         border: outset;
     }
 }
 
 .element-container {
     margin-top: 15%;
+}
+
+.user_pokemon_container {
+    margin-top: 50px;
+}
+
+.user_pokemon_panel {
+    height: 120px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.8);
+    padding: 0px 20px 0px 40px;
+
+    &:hover {
+        background-color: darken(rgba(240,240,240,0.8), 3)
+    }
+}
+
+.pokemen_details_container {
+    padding-top: 5px;
+}
+
+.resize-image {
+    width: 120px;
+    height: 120px;
 }
 
 // - - - - - - - - - - - - - - - Video Part - - - - - - - - - - - - - - -

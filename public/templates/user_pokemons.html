@@ -1,0 +1,87 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="pull-right">
+            <a href="#!/login" class="btn btn-info login-btn">Login</a>
+        </div>
+        <div class="pull-left">
+            <a href="#"><img ng-src="static/source_image/Pokemon-Fightt.png" class="top-logo"></img></a>
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+    <!-- <div class="video-background">
+        <div class="video-foreground">
+          <iframe src="https://www.youtube.com/embed/ze6zcaemf7M?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=ze6zcaemf7M" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div> -->
+    <div class="content-container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="user_pokemon_container">
+                    <h2>Your pokemon collection, click to remove:</h2>
+                    <a href="#!/user/{{model.uid}}" class="btn btn-info">Go Back</a>
+                    <div ng-repeat="pokemon in model.userPokemons">
+                        <div class="user_pokemon_panel" ng-click="model.removePokemon(pokemon.owns_id)">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <img class="resize-image" ng-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/{{ pokemon.poke_id }}.png">
+                                    <span style="font-size: 1.5em;font-weight: bold;">{{ pokemon.poke_name }}</span>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="pokemen_details_container">
+                                        <div class="col-sm-6">
+                                            <h4>HP:
+                                            {{ pokemon.hp }}
+                                            </h4>
+                                            <h4>Attack:
+                                            {{ pokemon.attack }}
+                                            </h4>
+                                            <h4>Defense:
+                                            {{ pokemon.defense }}
+                                            </h4>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h4>Special_attack:
+                                            {{ pokemon.sp_attack }}
+                                            </h4>
+                                            <h4>Special_defense:
+                                            {{ pokemon.sp_defense }}
+                                            </h4>
+                                            <h4>Speed:
+                                            {{ pokemon.speed }}
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                  <!-- <tbody>
+                    <tr ng-repeat="pokemon in model.pokemons">
+                      <td><img ng-src="https://raw.githubusercontent.com/msikma/pokesprite/master/icons/pokemon/regular/{{ pokemon.poke_name }}.png"></td>
+                      <td>{{ pokemon.poke_name }}</td>
+                      <td>{{ pokemon.poke_id }}</td>
+                      <td>{{ pokemon.poke_type }}</td>
+                      <td>{{ pokemon.hp }}</td>
+                      <td>{{ pokemon.attack }}</td>
+                      <td>{{ pokemon.defense }}</td>
+                      <td>{{ pokemon.sp_attack }}</td>
+                      <td>{{ pokemon.sp_defense }}</td>
+                      <td>{{ pokemon.speed }}</td>
+                    </tr>
+                  </tbody> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="pull-right">
+            <a href="#" class="navbar-right"><img src="static/source_image/pokelabel.png" class="bottom-logo"></img></a>
+        </div>
+    </div>
+</nav>
