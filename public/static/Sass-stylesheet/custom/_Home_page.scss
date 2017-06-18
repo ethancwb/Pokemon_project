@@ -187,25 +187,34 @@
     border-top: none;
 
     .resize-image {
-        width: 200px !important;
-        height: 200px !important;
+        width: 120px !important;
+        height: 120px !important;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+    h4 {
         display: inline-block;
     }
 }
 
 .player1-battle-info-container {
     float: left;
-    padding-top: 0px;
+    margin-top: 30px;
+    display: inline-block;
 }
 
 
 .player2-battle-info-container {
     float: right;
-    padding-top: 60px;
+    padding-top: 30px;
+    display: inline-block;
+    margin-top: 20px;
 
     .resize-image {
         margin-right: 70px;
-        margin-left: -50px;
+        margin-left: -30px;
+        margin-top: 20px;
     }
 }
 
@@ -219,5 +228,7 @@
 }
 
 .status-container {
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-top: 20px;
+
 }
