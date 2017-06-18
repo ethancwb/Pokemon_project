@@ -5851,7 +5851,7 @@ button.close {
   flex-direction: column;
   overflow: scroll;
   background-image: url("source_image/backgroud-1.png");
-  background-size: contain; }
+  background-size: cover; }
 
 .content-container {
   -webkit-box-flex: 1;
@@ -6156,20 +6156,27 @@ button.close {
   border: groove;
   border-top: none; }
   .battle-container .resize-image {
-    width: 200px !important;
-    height: 200px !important;
+    width: 120px !important;
+    height: 120px !important;
+    display: inline-block;
+    margin-top: 20px; }
+  .battle-container h4 {
     display: inline-block; }
 
 .player1-battle-info-container {
   float: left;
-  padding-top: 0px; }
+  margin-top: 30px;
+  display: inline-block; }
 
 .player2-battle-info-container {
   float: right;
-  padding-top: 60px; }
+  padding-top: 30px;
+  display: inline-block;
+  margin-top: 20px; }
   .player2-battle-info-container .resize-image {
     margin-right: 70px;
-    margin-left: -50px; }
+    margin-left: -30px;
+    margin-top: 20px; }
 
 .battle-log-container {
   background-color: rgba(220, 220, 220, 0.6);
@@ -6178,4 +6185,5 @@ button.close {
     margin-top: 0; }
 
 .status-container {
-  margin-left: 20px; }
+  margin-left: 10px;
+  margin-top: 20px; }
