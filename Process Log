@@ -1,15 +1,18 @@
 TODO:
-2. Edit user pokemons -> Allow user to remove a pokemon.
-   Possible solution: Create a new page, render the list of user's pokemons -> delete one by one.
-3. Edit battle team -> Allow user to update (favorite/unfavorite) his/her battle team.
-   Possible solution: Create a new page, render the list of user's favorite pokemons -> update one by one.
+1. Debug.
+2. Battle System UI.
+3. Homepage UI.
+
+
+
+June 18th, 2017:
+1. Bug fix: Header picture not showing correctly online.
+2. Edit battle team -> Allow user to update (favorite/unfavorite) his/her battle team.
+3. Edit user pokemons -> Allow user to remove a pokemon.
 4. Battle System.
-5. Debugs. (Header picture not showing correctly online)
 
 
-
-
-Achieved:
+June 17th, 2017:
 1. Regisration.
 2. Login.
 3. Logout.

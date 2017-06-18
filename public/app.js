@@ -1,5 +1,22 @@
 module.exports = function (app, connection, P) {
 
+    app.get('/getRandomTeam', function(req, res) {
+        var poke_1 = 1;
+        var poke_2 = 1;
+        var poke_3 = 1;
+        while (poke_1 === poke_2 || poke_1 === poke_3 || poke_2 === poke_3) {
+            poke_1 = Math.floor((Math.random() * 721) + 1);
+            poke_2 = Math.floor((Math.random() * 721) + 1);
+            poke_3 = Math.floor((Math.random() * 721) + 1);
+        }
+        connection.query('CALL generateRandomTeam(' + poke_1 + ", " + poke_2 + ", " + poke_3 + ');',function(err,rows) {
+            if (err) {
+                res.sendStatus(404)
+            }
+            res.json(rows)
+        })
+    });
+
 
     app.post('/add2Team', function(req, res) {
         var ownsId = req.body.ownsId;

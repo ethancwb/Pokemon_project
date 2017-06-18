@@ -14,7 +14,6 @@
         model.add2Team = add2Team;
 
 
-
         function initUserBattleTeam(userId) {
             var url = '/initUserBattleTeam';
             return $http.post(url, userId)

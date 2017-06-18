@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="pull-right">
-            <a href="#!/login" class="btn btn-info login-btn">Login</a>
+            <a href="#!/login" class="btn btn-info login-btn">Logout</a>
         </div>
         <div class="pull-left">
             <a href="#"><img src="static/source_image/Pokemon-Fightt.png" class="top-logo"></img></a>
@@ -17,40 +17,44 @@
                     <div class="col-sm-4">
                         <div class="player1-battle-info-container">
                             <div class="col-sm-6">
-                                <h4> Round 1: </h4>
-                                <img class="resize-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/1.png">
+                                <img class="resize-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/{{model.userBattleTeam[0].poke_id}}.png">
                             </div>
                             <div class="col-sm-6">
                                 <div class="status-container">
-                                    <p>Attack:5</p>
-                                    <p>Attack:5</p>
-                                    <p>Attack:5</p>
-                                    <p>sp_Attack:50</p>
-                                    <p>sp_Attack:5</p>
-                                    <p>Attack:5</p>
+                                    <p>"HP: {{model.userBattleTeam[0].hp}}"</p>
+                                    <p>"Attack: {{model.userBattleTeam[0].attack}}"</p>
+                                    <p>"Defense: {{model.userBattleTeam[0].defense}}"</p>
+                                    <p>"sp_Attack: {{model.userBattleTeam[0].sp_attack}}"</p>
+                                    <p>"sp_Defense: {{model.userBattleTeam[0].sp_defense}}"</p>
+                                    <p>"Speed: {{model.userBattleTeam[0].speed}}"</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <div class="battle-log-container">
-                            <h1>I'm the log section</h1>
+                        <div class="battle-log-container"; style="overflow-y: scroll;">
+                            <ul class="list-group">
+                                <li ng-repeat="log1 in model.log1" class="list-group-item">
+                                    <p>{{log1}}</p>
+                                </li>
+                            </ul>
+                            <!--<p>{{model.log1}}</p>-->
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="player2-battle-info-container">
                             <div class="col-sm-6">
                                 <div class="status-2-container">
-                                    <p>Attack:5</p>
-                                    <p>Attack:5</p>
-                                    <p>Attack:5</p>
-                                    <p>sp_Attack:50</p>
-                                    <p>sp_Attack:5</p>
-                                    <p>Attack:5</p>
+                                    <p>"HP: {{model.randomBattleTeam[0].hp}}"</p>
+                                    <p>"Attack: {{model.randomBattleTeam[0].attack}}"</p>
+                                    <p>"Defense: {{model.randomBattleTeam[0].defense}}"</p>
+                                    <p>"sp_Attack: {{model.randomBattleTeam[0].sp_attack}}"</p>
+                                    <p>"sp_Defense: {{model.randomBattleTeam[0].sp_defense}}"</p>
+                                    <p>"Speed: {{model.randomBattleTeam[0].speed}}"</p>
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <img class="resize-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/1.png">
+                                <img class="resize-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/{{model.randomBattleTeam[0].poke_id}}.png">
                             </div>
                         </div>
                     </div>
@@ -59,40 +63,44 @@
                     <div class="col-sm-4">
                         <div class="player1-battle-info-container">
                             <div class="col-sm-6">
-                                <h4> Round 1: </h4>
-                                <img class="resize-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/1.png">
+                                <img class="resize-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/{{model.userBattleTeam[1].poke_id}}.png">
                             </div>
                             <div class="col-sm-6">
                                 <div class="status-container">
-                                    <p>Attack:5</p>
-                                    <p>Attack:5</p>
-                                    <p>Attack:5</p>
-                                    <p>sp_Attack:50</p>
-                                    <p>sp_Attack:5</p>
-                                    <p>Attack:5</p>
+                                    <p>"HP: {{model.userBattleTeam[1].hp}}"</p>
+                                    <p>"Attack: {{model.userBattleTeam[1].attack}}"</p>
+                                    <p>"Defense: {{model.userBattleTeam[1].defense}}"</p>
+                                    <p>"sp_Attack: {{model.userBattleTeam[1].sp_attack}}"</p>
+                                    <p>"sp_Defense: {{model.userBattleTeam[1].sp_defense}}"</p>
+                                    <p>"Speed: {{model.userBattleTeam[1].speed}}"</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <div class="battle-log-container">
-                            <h1>I'm the log section</h1>
+                        <div class="battle-log-container"; style="overflow-y: scroll;">
+                            <ul class="list-group">
+                                <li ng-repeat="log2 in model.log2" class="list-group-item">
+                                    <p>{{log2}}</p>
+                                </li>
+                            </ul>
+                            <!--<p>{{model.log2}}</p>-->
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="player2-battle-info-container">
                             <div class="col-sm-6">
                                 <div class="status-2-container">
-                                    <p>Attack:5</p>
-                                    <p>Attack:5</p>
-                                    <p>Attack:5</p>
-                                    <p>sp_Attack:50</p>
-                                    <p>sp_Attack:5</p>
-                                    <p>Attack:5</p>
+                                    <p>"HP: {{model.randomBattleTeam[1].hp}}"</p>
+                                    <p>"Attack: {{model.randomBattleTeam[1].attack}}"</p>
+                                    <p>"Defense: {{model.randomBattleTeam[1].defense}}"</p>
+                                    <p>"sp_Attack: {{model.randomBattleTeam[1].sp_attack}}"</p>
+                                    <p>"sp_Defense: {{model.randomBattleTeam[1].sp_defense}}"</p>
+                                    <p>"Speed: {{model.randomBattleTeam[1].speed}}"</p>
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <img class="resize-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/1.png">
+                                <img class="resize-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/{{model.randomBattleTeam[1].poke_id}}.png">
                             </div>
                         </div>
                     </div>
@@ -101,40 +109,44 @@
                     <div class="col-sm-4">
                         <div class="player1-battle-info-container">
                             <div class="col-sm-6">
-                                <h4> Round 1: </h4>
-                                <img class="resize-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/1.png">
+                                <img class="resize-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/{{model.userBattleTeam[2].poke_id}}.png">
                             </div>
                             <div class="col-sm-6">
                                 <div class="status-container">
-                                    <p>Attack:5</p>
-                                    <p>Attack:5</p>
-                                    <p>Attack:5</p>
-                                    <p>sp_Attack:50</p>
-                                    <p>sp_Attack:5</p>
-                                    <p>Attack:5</p>
+                                    <p>"HP: {{model.userBattleTeam[2].hp}}"</p>
+                                    <p>"Attack: {{model.userBattleTeam[2].attack}}"</p>
+                                    <p>"Defense: {{model.userBattleTeam[2].defense}}"</p>
+                                    <p>"sp_Attack: {{model.userBattleTeam[2].sp_attack}}"</p>
+                                    <p>"sp_Defense: {{model.userBattleTeam[2].sp_defense}}"</p>
+                                    <p>"Speed: {{model.userBattleTeam[2].speed}}"</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <div class="battle-log-container">
-                            <h1>I'm the log section</h1>
+                        <div class="battle-log-container"; style="overflow-y: scroll;">
+                            <ul class="list-group">
+                                <li ng-repeat="log3 in model.log3" class="list-group-item">
+                                    <p>{{log3}}</p>
+                                </li>
+                            </ul>
+                            <!--<p>{{model.log3}}</p>-->
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="player2-battle-info-container">
                             <div class="col-sm-6">
                                 <div class="status-2-container">
-                                    <p>Attack:5</p>
-                                    <p>Attack:5</p>
-                                    <p>Attack:5</p>
-                                    <p>sp_Attack:50</p>
-                                    <p>sp_Attack:5</p>
-                                    <p>Attack:5</p>
+                                    <p>"HP: {{model.randomBattleTeam[2].hp}}"</p>
+                                    <p>"Attack: {{model.randomBattleTeam[2].attack}}"</p>
+                                    <p>"Defense: {{model.randomBattleTeam[2].defense}}"</p>
+                                    <p>"sp_Attack: {{model.randomBattleTeam[2].sp_attack}}"</p>
+                                    <p>"sp_Defense: {{model.randomBattleTeam[2].sp_defense}}"</p>
+                                    <p>"Speed: {{model.randomBattleTeam[2].speed}}"</p>
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <img class="resize-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/1.png">
+                                <img class="resize-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/{{model.randomBattleTeam[2].poke_id}}.png">
                             </div>
                         </div>
                     </div>
