@@ -1,4 +1,17 @@
 module.exports = function (app, connection, P) {
+    
+    app.post('/add2BattleHistory', function(req, res) {
+        var bid = req.body.bid;
+        var uid = req.body.uid;
+        var result = req.body.result;
+
+        connection.query('CALL addBattleHistory(' + bid + ", " + uid + ", " + result + ');',function(err, rows) {
+            if (err) {
+                res.sendStatus(400)
+            }
+            res.json(rows)
+        })
+    });
 
     app.get('/getRandomTeam', function(req, res) {
         var poke_1 = 1;

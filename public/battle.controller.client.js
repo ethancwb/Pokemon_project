@@ -9,6 +9,9 @@
         model.log1 = [];
         model.log2 = [];
         model.log3 = [];
+        var result1 = 9;
+        var result2 = 9;
+        var result3 = 9;
 
         function attack(r, log, gameId) {
             if (r[0] <= 0 || r[6] <= 0) {
@@ -47,6 +50,43 @@
             }
         }
 
+        function resultCheck(gameId, result) {
+            var finalResult;
+            if (gameId === 1) {
+                result1 = result;
+            } else if (gameId === 2) {
+                result2 = result;
+            } else if (gameId === 3) {
+                result3 = result;
+            }
+
+            if (result1 != 9 && result2 != 9 && result3 != 9) {
+                if (result1 + result2 + result3 === 2 || result1 + result2 + result3 === 3) {
+                    finalResult = 1;
+                } else {
+                    finalResult = 0;
+                }
+                result1 = 9;
+                result2 = 9;
+                result3 = 9;
+                var url = '/add2BattleHistory';
+                var battle = {
+                    bid: new Date().getUTCMilliseconds(),
+                    uid: model.uid,
+                    result: finalResult
+                };
+                return $http.post(url, battle)
+                    .then(success, error)
+                function success (response) {
+                    return;
+                }
+                function error(err) {
+                    model.error = err;
+                }
+            }
+            return;
+        }
+
         function battle(r, log, gameId) {
             if (r[5] >= r[11]) {
                 attack(r, log, gameId)
@@ -55,8 +95,10 @@
             }
             if (r[0] <= 0 && r[6] > 0) {
                 log.push('Game ' + gameId + ': You Lost!');
+                resultCheck(gameId, 0);
             } else {
                 log.push('Game ' + gameId + ': You Win!');
+                resultCheck(gameId, 1);
             }
 
         }
@@ -68,7 +110,7 @@
                 userId: uid
             };
             return $http.post(url, userId)
-                .then(getUserBattleTeam, error);
+                .then(getUserBattleTeam, error)
             function getUserBattleTeam (response) {
                 model.userBattleTeam = response.data[0];
                 var url = '/getRandomTeam';

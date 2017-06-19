@@ -226,9 +226,9 @@ FROM pokemons p WHERE p.poke_id = pid;
 
 
 IF numberOfPokemons < 12 THEN
-INSERT INTO owns (user_id, poke_id, poke_name, hp, attack, defense, sp_attack, sp_defense, speed, poke_type, favorite)
+INSERT INTO owns (user_id, poke_id, poke_name, hp, attack, defense, sp_attack, sp_defense, speed, poke_type, favorite, poke_current_hp)
 VALUES (uid, pid, new_poke_name, new_poke_hp, new_poke_attack, new_poke_defense, new_poke_sp_attack, new_poke_sp_defense,
-new_poke_speed, new_poke_type, 0);
+new_poke_speed, new_poke_type, 0, new_poke_hp);
 END IF;
 
 
@@ -274,3 +274,30 @@ BEGIN
 SELECT * FROM pokemons p WHERE p.poke_id = p1 OR p.poke_id = p2 OR p.poke_id = p3;
 
 END $$
+DELIMITER ;
+
+-- addBattleHistory -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DROP PROCEDURE IF EXISTS addBattleHistory;
+
+DELIMITER $$
+CREATE PROCEDURE addBattleHistory(bid INT, uid INT, result INT)
+BEGIN
+
+DECLARE user_winning_number INT;
+
+INSERT INTO battle_history VALUES(bid, uid, result);
+
+SELECT COUNT(*) INTO user_winning_number FROM battle_history WHERE battle_history.user_id = uid AND battle_history.game_result = 1;
+
+IF (user_winning_number != 0) AND (user_winning_number % 10 = 0) 
+THEN UPDATE users SET users.tier = (user_winning_number / 10);
+END IF;
+
+END $$
+DELIMITER ;
+
+
+
+
+
