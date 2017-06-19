@@ -91,7 +91,9 @@
 
 .element-image-first {
     margin-top: 40px;
-    padding-left: 15px;
+    padding-left: 15%;
+    width: 200px;
+    height: auto;
     &:hover {
         border-color: transparent !important;
         border: outset;
@@ -99,9 +101,8 @@
 }
 
 .element-expansion {
-    // background-color: rgba(240, 240, 240, 0.8);
     visibility: hidden;
-    height: 60vh;
+    height: 72vh;
     width: inherit;
     opacity: 0;
     padding: 0 20px 0 20px;
@@ -109,7 +110,9 @@
 
 .element-image {
     margin-top: 40px;
-    padding-left: 15px;
+    padding-left: 15%;
+    width: 200px;
+    height: auto;
     &:hover {
         border-color: transparent !important;
         border: outset;
