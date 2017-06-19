@@ -206,6 +206,7 @@ CREATE PROCEDURE add_new_own(uid INT, pid INT,
 p_hp INT, p_attack INT, p_defense INT, p_sp_attack INT, p_sp_defense INT, p_speed INT)
 BEGIN
 
+DECLARE numberOfPokemons INT;
 DECLARE new_poke_name VARCHAR(45);
 DECLARE new_poke_hp INT;
 DECLARE new_poke_attack INT;
@@ -215,6 +216,8 @@ DECLARE new_poke_sp_defense INT;
 DECLARE new_poke_speed INT;
 DECLARE new_poke_type VARCHAR(45);
 
+SELECT COUNT(*) INTO numberOfPokemons FROM owns o WHERE o.user_id = uid;
+
 SELECT 
 poke_name, (hp + p_hp), (attack + p_attack), (defense + p_defense), (sp_attack + p_sp_attack), (sp_defense + p_sp_defense), (speed + p_speed), poke_type 
 INTO new_poke_name, new_poke_hp, new_poke_attack, new_poke_defense, new_poke_sp_attack, new_poke_sp_defense,
@@ -222,16 +225,52 @@ new_poke_speed, new_poke_type
 FROM pokemons p WHERE p.poke_id = pid;
 
 
+IF numberOfPokemons < 12 THEN
 INSERT INTO owns (user_id, poke_id, poke_name, hp, attack, defense, sp_attack, sp_defense, speed, poke_type, favorite)
 VALUES (uid, pid, new_poke_name, new_poke_hp, new_poke_attack, new_poke_defense, new_poke_sp_attack, new_poke_sp_defense,
 new_poke_speed, new_poke_type, 0);
+END IF;
+
+
 END $$
 DELIMITER ;
 
 
 
+-- update_favirote -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DROP PROCEDURE IF EXISTS update_favirote;
+
+DELIMITER $$
+CREATE PROCEDURE update_favirote(uid INT, oid INT)
+BEGIN
+
+DECLARE isFavorite BOOLEAN;
+DECLARE numberOfFavorite INT;
+
+SELECT COUNT(*) INTO numberOfFavorite FROM owns WHERE owns.user_id = uid AND owns.favorite = 1;
+
+SELECT favorite INTO isFavorite FROM owns WHERE owns_id = oid;
+
+IF isFavorite != 1 AND numberOfFavorite < 3 THEN SET isFavorite = 1;
+ELSE SET isFavorite = 0;
+END IF;
+
+UPDATE owns o SET o.favorite = isFavorite
+WHERE o.owns_id = oid;
+
+END $$
+DELIMITER ;
 
 
+-- generateRandomTeam -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+DROP PROCEDURE IF EXISTS generateRandomTeam;
 
+DELIMITER $$
+CREATE PROCEDURE generateRandomTeam(p1 INT, p2 INT, p3 INT)
+BEGIN
 
+SELECT * FROM pokemons p WHERE p.poke_id = p1 OR p.poke_id = p2 OR p.poke_id = p3;
+
+END $$

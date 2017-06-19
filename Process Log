@@ -1,7 +1,9 @@
 TODO:
-1. Debug.
-2. Battle System UI.
-3. Homepage UI.
+1. Battle System UI.
+2. Homepage UI.
+3. Debug:
+   a. Random attack may be higher than sp_attack
+      Random defense may be higher than sp_defense
 
 
 
