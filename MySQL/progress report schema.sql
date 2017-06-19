@@ -1,17 +1,18 @@
-DROP DATABASE IF EXISTS pokemon_fight;
+-- DROP DATABASE IF EXISTS m4wf5ifdowrsox28;
 
 
-CREATE DATABASE pokemon_fight;
-USE pokemon_fight;
+-- CREATE DATABASE m4wf5ifdowrsox28;
+-- USE m4wf5ifdowrsox28;
 
 
-CREATE TABLE registered_users
+
+CREATE TABLE users
 (
 	user_id						INT										PRIMARY KEY,
     user_type					ENUM('regular', 'admin')		NOT NULL,
     user_name					VARCHAR(45)					NOT NULL,
     user_password 			VARCHAR(45)					NOT NULL,
-    tier 								VARCHAR(45) 					NOT NULL
+    tier 								INT					 					NOT NULL
 
 );
 
@@ -20,9 +21,9 @@ CREATE TABLE admin
 (
 	user_id						INT										PRIMARY KEY,
     
-	CONSTRAINT admin_fk_registered_users
+	CONSTRAINT admin_fk_users
     FOREIGN KEY (user_id)
-    REFERENCES registered_users (user_id) ON UPDATE CASCADE 
+    REFERENCES users (user_id) ON UPDATE CASCADE 
 
 );
 
@@ -90,9 +91,9 @@ CREATE TABLE battle_history
     user_id							INT 						NOT NULL,
     game_result					BOOLEAN  			NOT NULL,
     
-    CONSTRAINT battle_history_fk_registered_users
+    CONSTRAINT battle_history_fk_users
     FOREIGN KEY (user_id)
-    REFERENCES registered_users (user_id) ON UPDATE CASCADE
+    REFERENCES users (user_id) ON UPDATE CASCADE
 );
 
 
@@ -111,10 +112,11 @@ CREATE TABLE owns
     speed 							INT 								NOT NULL,
     poke_type 					VARCHAR(45)  			NOT NULL,
     favorite						BOOLEAN      				NOT NULL,
+    poke_current_hp 		INT								NOT NULL,
     
     CONSTRAINT own_fk_users
     FOREIGN KEY (user_id)
-    REFERENCES registered_users (user_id),
+    REFERENCES users (user_id),
     CONSTRAINT own_fk_pokemons
     FOREIGN KEY (poke_id)
     REFERENCES pokemons (poke_id)
@@ -129,9 +131,9 @@ CREATE TABLE receives
     CONSTRAINT receives_pk
     PRIMARY KEY (battle_id, user_id),
     
-	CONSTRAINT receives_fk_registered_users
+	CONSTRAINT receives_fk_users
     FOREIGN KEY (user_id)
-    REFERENCES registered_users (user_id) ON UPDATE CASCADE,
+    REFERENCES users (user_id) ON UPDATE CASCADE,
     
 	CONSTRAINT receives_fk_battle_history
     FOREIGN KEY (battle_id)
@@ -139,13 +141,7 @@ CREATE TABLE receives
 );
 
 
--- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO registered_users VALUES(6666, 'regular', 'pokemon_fucker', 'pokemon_fucker', 'level 666');
-INSERT INTO pokemons VALUES(6666, 'test_pokemon', 6666, 6666, 6666, 6666, 6666, 6666, 'test_type');
-INSERT INTO battle_history VALUES(6666, 6666, 1);
-INSERT INTO owns VALUES(6666, 6666, 6666, 'test_pokemon', 6666, 6666, 6666, 6666, 6666, 6666, 'test_type', 1);
-INSERT INTO receives VALUES(6666, 6666);
--- 
+-- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 

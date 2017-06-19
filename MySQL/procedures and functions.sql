@@ -14,9 +14,9 @@ DECLARE uid INT;
 
 
 SELECT user_id INTO uid
-FROM registered_users r
-WHERE r.user_name = user_name
-AND r.user_password = user_password;
+FROM users u
+WHERE u.user_name = user_name
+AND u.user_password = user_password;
 
 RETURN (uid);
 END $$
@@ -30,8 +30,8 @@ DELIMITER $$
 CREATE PROCEDURE regisration(uid INT, user_name VARCHAR(45), user_password VARCHAR(45))
 BEGIN
 
-INSERT INTO registered_users (user_id, user_type, user_name, user_password, tier) VALUES (uid, 'regular', user_name, user_password, 'bronze');
-SELECT user_id FROM registered_users r WHERE r.user_id = uid;
+INSERT INTO users (user_id, user_type, user_name, user_password, tier) VALUES (uid, 'regular', user_name, user_password, 0);
+SELECT user_id FROM users u WHERE u.user_id = uid;
 
 
 END $$
@@ -44,7 +44,7 @@ DELIMITER $$
 CREATE PROCEDURE find_user_by_credential(user_name VARCHAR(45), user_password VARCHAR(45))
 BEGIN
 
-SELECT user_id FROM registered_users r WHERE r.user_name = user_name AND r.user_password = user_password;
+SELECT user_id FROM users u WHERE u.user_name = user_name AND u.user_password = user_password;
 
 
 END $$
@@ -60,7 +60,7 @@ DELIMITER $$
 CREATE PROCEDURE get_user_by_name(user_name VARCHAR(45))
 BEGIN
 
-SELECT user_id FROM registered_users r WHERE r.user_name = use_name;
+SELECT user_id FROM users u WHERE u.user_name = use_name;
 
 
 END $$
@@ -107,8 +107,8 @@ DELIMITER $$
 CREATE PROCEDURE update_user(uid INT, user_name VARCHAR(45), user_password VARCHAR(45))
 BEGIN
 
-UPDATE registered_users r SET r.user_name = user_name, r.user_password = user_password
-WHERE r.user_id = uid;
+UPDATE users r SET u.user_name = user_name, u.user_password = user_password
+WHERE u.user_id = uid;
 
 END $$
 DELIMITER ;
@@ -122,7 +122,7 @@ DELIMITER $$
 CREATE PROCEDURE get_user_by_id(uid INT)
 BEGIN
 
-SELECT user_id, user_type, user_name, tier FROM registered_users WHERE user_id = uid;
+SELECT user_id, user_type, user_name, tier FROM users WHERE user_id = uid;
 
 END $$
 DELIMITER ;
