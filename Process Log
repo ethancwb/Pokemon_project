@@ -1,11 +1,18 @@
 TODO:
 1. Battle System UI.
 2. Homepage UI.
-3. Debug:
-   a. Random attack may be higher than sp_attack
-      Random defense may be higher than sp_defense
+3. Header Button.
+4. Battle with user.
+5. Catch new pokemon by fight with computer.
+6. Debug:
 
 
+June 19th, 2017:
+1. Bug fix: 
+	a. Base attack/defense might be higher than sp_attack/sp_defense.
+2. New feature: 
+	a. Every 10 wins can up user a level.
+	b. The higher level the users are, the stronger pokemons they can catch.
 
 June 18th, 2017:
 1. Bug fix: Header picture not showing correctly online.
