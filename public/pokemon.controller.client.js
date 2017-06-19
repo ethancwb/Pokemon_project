@@ -80,6 +80,7 @@
             var uid = $routeParams.userId;
             var newOwn = {
                 pid: Math.floor((Math.random() * 721) + 1),
+                userTier: model.user.tier,
                 uid: uid};
             return $http.post(url, newOwn)
                         .then(updateUserPokemon, error);

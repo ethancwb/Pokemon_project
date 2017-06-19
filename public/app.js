@@ -1,4 +1,17 @@
 module.exports = function (app, connection, P) {
+    
+    app.post('/add2BattleHistory', function(req, res) {
+        var bid = req.body.bid;
+        var uid = req.body.uid;
+        var result = req.body.result;
+
+        connection.query('CALL addBattleHistory(' + bid + ", " + uid + ", " + result + ');',function(err, rows) {
+            if (err) {
+                res.sendStatus(400)
+            }
+            res.json(rows)
+        })
+    });
 
     app.get('/getRandomTeam', function(req, res) {
         var poke_1 = 1;
@@ -32,6 +45,7 @@ module.exports = function (app, connection, P) {
     app.post('/generateAPokemon', function(req, res) {
         var uid = req.body.uid;
         var pid = req.body.pid;
+        var userTier = req.body.userTier;
 
         var randomHP = Math.random();
         if (randomHP < 0.5) {
@@ -39,7 +53,7 @@ module.exports = function (app, connection, P) {
         } else {
             randomHP -= 0.5;
         }
-        var b_hp = Math.floor(randomHP * 10);
+        var b_hp = Math.floor(randomHP * 10) + (userTier * 10);
 
         var randomAttack = Math.random();
         if (randomAttack < 0.5) {
@@ -47,7 +61,7 @@ module.exports = function (app, connection, P) {
         } else {
             randomAttack -= 0.5;
         }
-        var b_attack = Math.floor(randomAttack * 10);
+        var b_attack = Math.floor(randomAttack * 10) + (userTier * 10);
 
         var randomDefense = Math.random();
         if (randomDefense < 0.5) {
@@ -55,7 +69,7 @@ module.exports = function (app, connection, P) {
         } else {
             randomDefense -= 0.5;
         }
-        var b_defense = Math.floor(randomDefense * 10);
+        var b_defense = Math.floor(randomDefense * 10) + (userTier * 10);
 
         var randomSA = Math.random();
         if (randomSA < 0.5) {
@@ -63,7 +77,7 @@ module.exports = function (app, connection, P) {
         } else {
             randomSA -= 0.5;
         }
-        var b_sa = Math.floor(randomSA * 10);
+        var b_sa = Math.floor(randomSA * 10) + (userTier * 10);
 
         var randomSD = Math.random();
         if (randomSD < 0.5) {
@@ -71,7 +85,7 @@ module.exports = function (app, connection, P) {
         } else {
             randomSD -= 0.5;
         }
-        var b_sd = Math.floor(randomSD * 10);
+        var b_sd = Math.floor(randomSD * 10) + (userTier * 10);
 
         var randomSPEED = Math.random();
         if (randomSPEED < 0.5) {
@@ -79,7 +93,19 @@ module.exports = function (app, connection, P) {
         } else {
             randomSPEED -= 0.5;
         }
-        var b_speed = Math.floor(randomSPEED * 10);
+        var b_speed = Math.floor(randomSPEED * 10) + (userTier * 10);
+        var temp_attack;
+        var temp_defense;
+        if (b_sa < b_attack) {
+            temp_attack = b_attack;
+            b_attack = b_sa;
+            b_sa = temp_attack;
+        }
+        if (b_sd < b_defense) {
+            temp_defense = b_defense;
+            b_defense = b_sd;
+            b_sd = temp_defense;
+        }
 
         connection.query('CALL add_new_own(' + uid + ", " + pid + ", " + b_hp + ", " + b_attack + ", " + b_defense +
             ", " + b_sa + ", " + b_sd + ", " + b_speed + ');',function(err,rows) {

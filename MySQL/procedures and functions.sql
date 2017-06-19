@@ -14,9 +14,9 @@ DECLARE uid INT;
 
 
 SELECT user_id INTO uid
-FROM registered_users r
-WHERE r.user_name = user_name
-AND r.user_password = user_password;
+FROM users u
+WHERE u.user_name = user_name
+AND u.user_password = user_password;
 
 RETURN (uid);
 END $$
@@ -30,8 +30,8 @@ DELIMITER $$
 CREATE PROCEDURE regisration(uid INT, user_name VARCHAR(45), user_password VARCHAR(45))
 BEGIN
 
-INSERT INTO registered_users (user_id, user_type, user_name, user_password, tier) VALUES (uid, 'regular', user_name, user_password, 'bronze');
-SELECT user_id FROM registered_users r WHERE r.user_id = uid;
+INSERT INTO users (user_id, user_type, user_name, user_password, tier) VALUES (uid, 'regular', user_name, user_password, 0);
+SELECT user_id FROM users u WHERE u.user_id = uid;
 
 
 END $$
@@ -44,7 +44,7 @@ DELIMITER $$
 CREATE PROCEDURE find_user_by_credential(user_name VARCHAR(45), user_password VARCHAR(45))
 BEGIN
 
-SELECT user_id FROM registered_users r WHERE r.user_name = user_name AND r.user_password = user_password;
+SELECT user_id FROM users u WHERE u.user_name = user_name AND u.user_password = user_password;
 
 
 END $$
@@ -60,7 +60,7 @@ DELIMITER $$
 CREATE PROCEDURE get_user_by_name(user_name VARCHAR(45))
 BEGIN
 
-SELECT user_id FROM registered_users r WHERE r.user_name = use_name;
+SELECT user_id FROM users u WHERE u.user_name = use_name;
 
 
 END $$
@@ -107,8 +107,8 @@ DELIMITER $$
 CREATE PROCEDURE update_user(uid INT, user_name VARCHAR(45), user_password VARCHAR(45))
 BEGIN
 
-UPDATE registered_users r SET r.user_name = user_name, r.user_password = user_password
-WHERE r.user_id = uid;
+UPDATE users r SET u.user_name = user_name, u.user_password = user_password
+WHERE u.user_id = uid;
 
 END $$
 DELIMITER ;
@@ -122,7 +122,7 @@ DELIMITER $$
 CREATE PROCEDURE get_user_by_id(uid INT)
 BEGIN
 
-SELECT user_id, user_type, user_name, tier FROM registered_users WHERE user_id = uid;
+SELECT user_id, user_type, user_name, tier FROM users WHERE user_id = uid;
 
 END $$
 DELIMITER ;
@@ -226,9 +226,9 @@ FROM pokemons p WHERE p.poke_id = pid;
 
 
 IF numberOfPokemons < 12 THEN
-INSERT INTO owns (user_id, poke_id, poke_name, hp, attack, defense, sp_attack, sp_defense, speed, poke_type, favorite)
+INSERT INTO owns (user_id, poke_id, poke_name, hp, attack, defense, sp_attack, sp_defense, speed, poke_type, favorite, poke_current_hp)
 VALUES (uid, pid, new_poke_name, new_poke_hp, new_poke_attack, new_poke_defense, new_poke_sp_attack, new_poke_sp_defense,
-new_poke_speed, new_poke_type, 0);
+new_poke_speed, new_poke_type, 0, new_poke_hp);
 END IF;
 
 
@@ -274,3 +274,30 @@ BEGIN
 SELECT * FROM pokemons p WHERE p.poke_id = p1 OR p.poke_id = p2 OR p.poke_id = p3;
 
 END $$
+DELIMITER ;
+
+-- addBattleHistory -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DROP PROCEDURE IF EXISTS addBattleHistory;
+
+DELIMITER $$
+CREATE PROCEDURE addBattleHistory(bid INT, uid INT, result INT)
+BEGIN
+
+DECLARE user_winning_number INT;
+
+INSERT INTO battle_history VALUES(bid, uid, result);
+
+SELECT COUNT(*) INTO user_winning_number FROM battle_history WHERE battle_history.user_id = uid AND battle_history.game_result = 1;
+
+IF (user_winning_number != 0) AND (user_winning_number % 10 = 0) 
+THEN UPDATE users SET users.tier = (user_winning_number / 10);
+END IF;
+
+END $$
+DELIMITER ;
+
+
+
+
+
