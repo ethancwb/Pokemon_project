@@ -13,7 +13,6 @@
         model.addNewPokemon = addNewPokemon;
         model.add2Team = add2Team;
 
-
         function initUserBattleTeam(userId) {
             var url = '/initUserBattleTeam';
             return $http.post(url, userId)
@@ -123,6 +122,10 @@
                 }
         }
 
+        model.clickPanel = function (name) {
+            $window.location.href = 'http://www.pokemon.com/us/pokedex/' + name
+        }
+
         model.search = function (val) {
             if (val === '' || val === null || val === undefined) {
                 model.error = "search field can not be empty!"
@@ -168,9 +171,8 @@
                     $location.url("/user/" + response.data[0][0].user_id);
                 }
                 function error(err) {
-                    model.error = err.data;
+                    model.message = "Wrong username/password!";
                 }
-
         }
 
         function register (username, password, rePassword) {
@@ -186,7 +188,7 @@
                     $location.url("/user/" + response.data[0][0].user_id);
                 }
                 function error(err) {
-                    return err
+                    model.err = "wrong in registion"
                 }
 
         }

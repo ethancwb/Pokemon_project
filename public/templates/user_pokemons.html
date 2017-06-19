@@ -10,17 +10,12 @@
 </nav>
 
 <div class="main-container">
-    <!-- <div class="video-background">
-        <div class="video-foreground">
-          <iframe src="https://www.youtube.com/embed/ze6zcaemf7M?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=ze6zcaemf7M" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div> -->
     <div class="content-container">
         <div class="row">
             <div class="col-sm-12">
                 <div class="user_pokemon_container">
+                    <a href="#!/user/{{model.uid}}"><img src="static/source_image/back.png" style="height: 60px;"></img></a>
                     <h2>Your pokemon collection, click to remove:</h2>
-                    <a href="#!/user/{{model.uid}}" class="btn btn-info">Go Back</a>
                     <div ng-repeat="pokemon in model.userPokemons">
                         <div class="user_pokemon_panel" ng-click="model.removePokemon(pokemon.owns_id)">
                             <div class="row">
@@ -59,20 +54,6 @@
                     </div>
                 </div>
             </div>
-                  <!-- <tbody>
-                    <tr ng-repeat="pokemon in model.pokemons">
-                      <td><img ng-src="https://raw.githubusercontent.com/msikma/pokesprite/master/icons/pokemon/regular/{{ pokemon.poke_name }}.png"></td>
-                      <td>{{ pokemon.poke_name }}</td>
-                      <td>{{ pokemon.poke_id }}</td>
-                      <td>{{ pokemon.poke_type }}</td>
-                      <td>{{ pokemon.hp }}</td>
-                      <td>{{ pokemon.attack }}</td>
-                      <td>{{ pokemon.defense }}</td>
-                      <td>{{ pokemon.sp_attack }}</td>
-                      <td>{{ pokemon.sp_defense }}</td>
-                      <td>{{ pokemon.speed }}</td>
-                    </tr>
-                  </tbody> -->
             </div>
         </div>
     </div>
