@@ -5942,21 +5942,25 @@ button.close {
 
 .element-image-first {
   margin-top: 40px;
-  padding-left: 15px; }
+  padding-left: 15%;
+  width: 200px;
+  height: auto; }
   .element-image-first:hover {
     border-color: transparent !important;
     border: outset; }
 
 .element-expansion {
   visibility: hidden;
-  height: 60vh;
+  height: 72vh;
   width: inherit;
   opacity: 0;
   padding: 0 20px 0 20px; }
 
 .element-image {
   margin-top: 40px;
-  padding-left: 15px; }
+  padding-left: 15%;
+  width: 200px;
+  height: auto; }
   .element-image:hover {
     border-color: transparent !important;
     border: outset; }
@@ -6260,8 +6264,7 @@ button.close {
 .player2-battle-info-container {
   float: right;
   padding-top: 30px;
-  display: inline-block;
-  margin-top: 20px; }
+  display: inline-block; }
   .player2-battle-info-container .resize-image {
     margin-right: 70px;
     margin-left: -30px;
@@ -6275,5 +6278,4 @@ button.close {
     margin-top: 0; }
 
 .status-container {
-  margin-left: 10px;
-  margin-top: 20px; }
+  margin-left: 10px; }
