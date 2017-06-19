@@ -2,6 +2,8 @@
     <div class="container-fluid">
         <div class="pull-right">
             <a href="#!/login" class="btn btn-info login-btn">Login</a>
+            <a href="https://github.com/ethancwb/cs3200_Final_Project" class="btn btn-info login-btn" style="right: 200px;">Our Github</a>
+            <a href="#!/login" class="btn btn-info login-btn" style="right: 400px;">Resources</a>
         </div>
         <div class="pull-left">
             <a href="#"><img ng-src="static/source_image/Pokemon-Fightt.png" class="top-logo"></img></a>
@@ -10,42 +12,21 @@
 </nav>
 
 <div class="main-container">
-    <!-- <div class="video-background">
-        <div class="video-foreground">
-          <iframe src="https://www.youtube.com/embed/ze6zcaemf7M?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=ze6zcaemf7M" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div> -->
     <div class="content-container">
         <div class="row">
             <div class="col-sm-12">
                 <img src="static/source_image/login-logo.png" class="login-image"></img>
                 <div class="login-page-inner-container">
-                    <!-- <div ng-show="model.message" class="alert alert-danger">
+                    <div ng-show="model.message" class="alert alert-danger">
                         {{model.message}}
-                    </div> -->
-                    <input type="text" ng-model="username" class="form-control" placeholder="Username"/>
-                    <input type="password" ng-model="password" class="form-control" placeholder="Password"/>
-                    <a ng-click="model.login(username, password)"
-                       class="btn btn-primary btn-block btn-login">Login</a>
-                    <a class="btn btn-primary btn-block btn-register" href="#!/register">Register</a>
-                </div>
-                <!-- <div class="flickr-search-container">
-                    <div class="box">
-                      <div class="container-search-field">
-                          <a class="icon"><i class="fa fa-search"></i></a>
-                          <input type="search" id="search" ng-model="val" placeholder="Search..." />
-                      </div>
                     </div>
-                </div> -->
+                    <input type="text" ng-model="username" class="form-control" placeholder="Username" />
+                    <input type="password" ng-model="password" class="form-control" placeholder="Password" />
+                    <a ng-click="model.login(username, password)"
+                       class="btn btn-primary btn-block">Login</a>
+                    <a class="btn btn-primary btn-block" href="#!/register">Register</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="pull-right">
-            <a href="#" class="navbar-right"><img src="static/source_image/pokelabel.png" class="bottom-logo"></img></a>
-        </div>
-    </div>
-</nav>

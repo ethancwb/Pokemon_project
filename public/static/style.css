@@ -5849,9 +5849,9 @@ button.close {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  overflow: scroll;
   background-image: url("source_image/backgroud-1.png");
-  background-size: cover; }
+  background-size: cover;
+  overflow: scroll; }
 
 .content-container {
   -webkit-box-flex: 1;
@@ -5863,6 +5863,42 @@ button.close {
   margin: 65px 3% 65px 3%; }
   .content-container .list-group {
     margin-bottom: 0px; }
+
+.element-section-fire {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(10%, rgba(192, 57, 43, 0.8)), to(rgba(255, 255, 255, 0.4)));
+  background: -webkit-linear-gradient(top, rgba(192, 57, 43, 0.8) 10%, rgba(255, 255, 255, 0.4));
+  background: -o-linear-gradient(top, rgba(192, 57, 43, 0.8) 10%, rgba(255, 255, 255, 0.4));
+  background: linear-gradient(to bottom, rgba(192, 57, 43, 0.8) 10%, rgba(255, 255, 255, 0.4)); }
+
+.element-section-fighting {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(10%, rgba(211, 84, 0, 0.8)), to(rgba(255, 255, 255, 0.4)));
+  background: -webkit-linear-gradient(top, rgba(211, 84, 0, 0.8) 10%, rgba(255, 255, 255, 0.4));
+  background: -o-linear-gradient(top, rgba(211, 84, 0, 0.8) 10%, rgba(255, 255, 255, 0.4));
+  background: linear-gradient(to bottom, rgba(211, 84, 0, 0.8) 10%, rgba(255, 255, 255, 0.4)); }
+
+.element-section-grass {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(10%, rgba(39, 174, 96, 0.8)), to(rgba(255, 255, 255, 0.4)));
+  background: -webkit-linear-gradient(top, rgba(39, 174, 96, 0.8) 10%, rgba(255, 255, 255, 0.4));
+  background: -o-linear-gradient(top, rgba(39, 174, 96, 0.8) 10%, rgba(255, 255, 255, 0.4));
+  background: linear-gradient(to bottom, rgba(39, 174, 96, 0.8) 10%, rgba(255, 255, 255, 0.4)); }
+
+.element-section-psychic {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(10%, rgba(142, 68, 173, 0.8)), to(rgba(255, 255, 255, 0.4)));
+  background: -webkit-linear-gradient(top, rgba(142, 68, 173, 0.8) 10%, rgba(255, 255, 255, 0.4));
+  background: -o-linear-gradient(top, rgba(142, 68, 173, 0.8) 10%, rgba(255, 255, 255, 0.4));
+  background: linear-gradient(to bottom, rgba(142, 68, 173, 0.8) 10%, rgba(255, 255, 255, 0.4)); }
+
+.element-section-eletric {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(10%, rgba(244, 208, 63, 0.8)), to(rgba(255, 255, 255, 0.4)));
+  background: -webkit-linear-gradient(top, rgba(244, 208, 63, 0.8) 10%, rgba(255, 255, 255, 0.4));
+  background: -o-linear-gradient(top, rgba(244, 208, 63, 0.8) 10%, rgba(255, 255, 255, 0.4));
+  background: linear-gradient(to bottom, rgba(244, 208, 63, 0.8) 10%, rgba(255, 255, 255, 0.4)); }
+
+.element-section-water {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(10%, rgba(52, 152, 219, 0.8)), to(rgba(255, 255, 255, 0.4)));
+  background: -webkit-linear-gradient(top, rgba(52, 152, 219, 0.8) 10%, rgba(255, 255, 255, 0.4));
+  background: -o-linear-gradient(top, rgba(52, 152, 219, 0.8) 10%, rgba(255, 255, 255, 0.4));
+  background: linear-gradient(to bottom, rgba(52, 152, 219, 0.8) 10%, rgba(255, 255, 255, 0.4)); }
 
 .homepage-container .navbar {
   background-color: rgba(255, 255, 255, 0.1) !important;
@@ -5878,7 +5914,9 @@ button.close {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  margin: 65px 0% 65px 0%; }
+  margin: 65px 0% 0 0%;
+  height: 100vh;
+  overflow-y: auto; }
 
 .form-control {
   height: 60px;
@@ -5903,26 +5941,32 @@ button.close {
   opacity: 1; }
 
 .element-image-first {
-  margin-top: 40px; }
+  margin-top: 40px;
+  padding-left: 15px; }
   .element-image-first:hover {
     border-color: transparent !important;
     border: outset; }
 
 .element-expansion {
-  background-color: rgba(240, 240, 240, 0.8);
   visibility: hidden;
   height: 60vh;
   width: inherit;
-  opacity: 0; }
+  opacity: 0;
+  padding: 0 20px 0 20px; }
 
 .element-image {
-  margin-top: 40px; }
+  margin-top: 40px;
+  padding-left: 15px; }
   .element-image:hover {
     border-color: transparent !important;
     border: outset; }
 
 .element-container {
-  margin-top: 15%; }
+  margin-top: 20%; }
+  .element-container a {
+    text-decoration: none; }
+  .element-container .col-sm-6, .element-container .col-md-4, .element-container .col-lg-2 {
+    padding: 0 0 0 0; }
 
 .user_pokemon_container {
   margin-top: 50px; }
@@ -5995,11 +6039,11 @@ button.close {
     white-space: nowrap;
     position: relative; }
     .flickr-search-container .container-search-field input {
-      width: 80vw;
+      width: 84vw;
       height: 150px;
       background: #fffaf0;
       border: none;
-      font-size: 10pt;
+      font-size: 1.5em;
       float: left;
       color: #63717f;
       padding-left: 45px;
@@ -6016,6 +6060,9 @@ button.close {
       z-index: 1;
       color: #4f5b66; }
 
+.list-view-container .flickr-search-container .container-search-field input {
+  width: 80vw !important; }
+
 .top-logo-homepage {
   background-size: contain;
   position: absolute !important;
@@ -6023,6 +6070,14 @@ button.close {
   width: 30vw;
   top: 23vh;
   float: left; }
+
+.top-logo-homepage-pikachu {
+  background-size: contain;
+  position: absolute !important;
+  top: 23.5vh;
+  left: 33vw;
+  width: 33vw;
+  height: 10vh; }
 
 .top-logo {
   height: 65px;
@@ -6033,18 +6088,52 @@ button.close {
   width: 60px;
   margin: 10px 25px 0 0; }
 
+.login-page-inner-container {
+  width: 75%;
+  margin-left: 12.5%; }
+  .login-page-inner-container .form-control {
+    height: 100px;
+    border: 0;
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+    border-bottom-color: grey;
+    border-radius: 0;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 1.5em; }
+    .login-page-inner-container .form-control:hover {
+      background-color: rgba(240, 240, 240, 0.8); }
+  .login-page-inner-container .btn {
+    height: 80px;
+    padding-top: 30px;
+    margin-top: 20px; }
+
 .login-image {
   height: 15%;
   width: 100%; }
 
+.login-btn {
+  position: absolute;
+  height: 65px;
+  width: 200px;
+  right: 0px;
+  padding-top: 15px;
+  border: none;
+  border-left: groove;
+  border-width: 1pt;
+  background: none;
+  color: black; }
+  .login-btn:hover {
+    background-color: #2e86c1;
+    border-color: #2e86c1; }
+
 .profile-inner-container {
-  overflow: scroll;
   margin-top: 40px; }
 
 .personal-info-container {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 50px 0 50px 50px;
-  border: outset;
   margin-top: 25px; }
   .personal-info-container .list-group {
     width: 80%; }
@@ -6068,24 +6157,24 @@ button.close {
 .split-line {
   height: 30px;
   text-align: center;
-  background-color: #deb887;
-  border: outset;
-  border-width: 0.2px; }
+  background-color: #deb887; }
 
 .split-line-1 {
   height: 30px;
   width: 100%;
   text-align: center;
-  background-color: #daa520;
-  border: outset;
-  border-width: 0.2px; }
+  background-color: #daa520; }
 
 .collection-container {
   border: groove;
-  min-height: 65vh; }
+  border-top: none;
+  border-bottom: none;
+  min-height: 495px; }
 
 .options-container {
   border: groove;
+  border-top: none;
+  border-bottom: none;
   min-height: 495px; }
   .options-container .btn {
     height: 100px;
@@ -6180,7 +6269,8 @@ button.close {
 
 .battle-log-container {
   background-color: rgba(220, 220, 220, 0.6);
-  height: 33vh; }
+  height: 33vh;
+  border-bottom: groove; }
   .battle-log-container h1 {
     margin-top: 0; }
 

@@ -7,6 +7,15 @@
     float: left;
 }
 
+.top-logo-homepage-pikachu {
+    background-size: contain;
+    position: absolute !important;
+    top: 23.5vh;
+    left: 33vw;
+    width: 33vw;
+    height: 10vh;
+}
+
 .top-logo {
     height: 65px;
     width: 240px;
@@ -19,7 +28,29 @@
 }
 
 .login-page-inner-container {
+    width: 75%;
+    margin-left: 12.5%;
 
+    .form-control {
+        height: 100px;
+        border: 0;
+        border-bottom-width: 1px;
+        border-bottom-style: dotted;
+        border-bottom-color: grey;
+        border-radius: 0;
+        background-color: transparent;
+        box-shadow: none;
+        font-size: 1.5em;
+
+        &:hover {
+            background-color: rgba(240,240,240, 0.8);
+        }
+    }
+    .btn {
+        height: 80px;
+        padding-top: 30px;
+        margin-top: 20px;
+    }
 }
 
 .login-image {
@@ -27,15 +58,32 @@
     width: 100%;
 }
 
+.login-btn {
+    position: absolute;
+    height: 65px;
+    width: 200px;
+    right: 0px;
+    padding-top: 15px;
+    border: none;
+    border-left: groove;
+    border-width: 1pt;
+    background: none;
+    color:black;
+
+    &:hover {
+        background-color: rgb(46, 134, 193);
+        border-color: rgb(46, 134, 193);
+    }
+}
+
 .profile-inner-container {
-    overflow: scroll;
     margin-top: 40px;
 }
 
 .personal-info-container {
     background-color: rgba(255,255,255,0.8);
     padding: 50px 0 50px 50px;
-    border: outset;
+    // border: outset;
     margin-top: 25px;
 
     .list-group {
@@ -71,8 +119,8 @@
     height: 30px;
     text-align: center;
     background-color: #deb887;
-    border: outset;
-    border-width: 0.2px;
+    // border: outset;
+    // border-width: 0.2px;
 }
 
 .split-line-1 {
@@ -80,18 +128,21 @@
     width: 100%;
     text-align: center;
     background-color: #daa520;
-    border: outset;
-    border-width: 0.2px;
+    // border: outset;
+    // border-width: 0.2px;
 }
 
 .collection-container {
-    // border: inset;
     border: groove;
-    min-height: 65vh;
+    border-top: none;
+    border-bottom: none;
+    min-height: 495px;
 }
 
 .options-container {
     border: groove;
+    border-top: none;
+    border-bottom: none;
     min-height: 495px;
 
     .btn {
@@ -221,6 +272,7 @@
 .battle-log-container {
     background-color: rgba(220,220,220, 0.6);
     height: 33vh;
+    border-bottom: groove;
 
     h1 {
         margin-top: 0;

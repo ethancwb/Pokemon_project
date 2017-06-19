@@ -2,6 +2,8 @@
     <div class="container-fluid">
         <div class="pull-right">
             <a href="#!/login" class="btn btn-info login-btn">Login</a>
+            <a href="https://github.com/ethancwb/cs3200_Final_Project" class="btn btn-info login-btn" style="right: 200px;">Our Github</a>
+            <a href="#!/login" class="btn btn-info login-btn" style="right: 400px;">Resources</a>
         </div>
         <div class="pull-left">
             <a href="#"><img ng-src="static/source_image/Pokemon-Fightt.png" class="top-logo"></img></a>
@@ -10,25 +12,14 @@
 </nav>
 
 <div class="main-container">
-    <!-- <div class="video-background">
-        <div class="video-foreground">
-          <iframe src="https://www.youtube.com/embed/ze6zcaemf7M?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=ze6zcaemf7M" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div> -->
     <div class="content-container">
         <div class="row">
             <div class="col-sm-12">
-                <div class="register-page-inner-container">
-                    <!-- <div ng-show="model.message" class="alert alert-danger">
-                        {{model.message}}
-                    </div> -->
-                    <h1 class="register-text">Register :</h1>
-                    <!-- <div ng-show="model.error" class="alert alert-danger">
-                        {{model.error}}
+                <div class="login-page-inner-container">
+                    <div ng-show="model.err" class="alert alert-danger">
+                        {{model.err}}
                     </div>
-                    <div ng-show="model.success" class="alert alert-sucess">
-                        {{model.success}}
-                    </div> -->
+                    <h1 class="register-text">Register :</h1>
                     <label for="username">Username</label>
                     <input type="text"
                            class="form-control"
@@ -53,14 +44,6 @@
                            PkSpr.decorate('icon_1');
                            </script>
                 </div>
-                <!-- <div class="flickr-search-container">
-                    <div class="box">
-                      <div class="container-search-field">
-                          <a class="icon"><i class="fa fa-search"></i></a>
-                          <input type="search" id="search" ng-model="val" placeholder="Search..." />
-                      </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>

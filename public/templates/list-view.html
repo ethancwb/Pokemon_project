@@ -2,7 +2,8 @@
     <div class="container-fluid">
         <div class="pull-right">
             <a href="#!/login" class="btn btn-info login-btn">Login</a>
-        </div>
+            <a href="https://github.com/ethancwb/cs3200_Final_Project" class="btn btn-info login-btn" style="right: 200px;">Our Github</a>
+            <a href="#!/login" class="btn btn-info login-btn" style="right: 400px;">Resources</a>        </div>
         <div class="pull-left">
             <a href="#"><img ng-src="static/source_image/Pokemon-Fightt.png" class="top-logo"></img></a>
         </div>
@@ -15,7 +16,7 @@
           <iframe src="https://www.youtube.com/embed/ze6zcaemf7M?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=ze6zcaemf7M" frameborder="0" allowfullscreen></iframe>
         </div>
     </div> -->
-    <div class="content-container">
+    <div class="content-container list-view-container">
         <div class="row">
             <div class="col-sm-12">
                 <div ng-show="model.error" class="alert alert-danger" style="margin-top: 30px;">{{model.error}}</div>
@@ -45,17 +46,17 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr ng-repeat="pokemon in model.pokemons">
-                      <td><img ng-src="https://raw.githubusercontent.com/msikma/pokesprite/master/icons/pokemon/regular/{{ pokemon.poke_name }}.png"></td>
-                      <td>{{ pokemon.poke_name }}</td>
-                      <td>{{ pokemon.poke_id }}</td>
-                      <td>{{ pokemon.poke_type }}</td>
-                      <td>{{ pokemon.hp }}</td>
-                      <td>{{ pokemon.attack }}</td>
-                      <td>{{ pokemon.defense }}</td>
-                      <td>{{ pokemon.sp_attack }}</td>
-                      <td>{{ pokemon.sp_defense }}</td>
-                      <td>{{ pokemon.speed }}</td>
+                    <tr ng-repeat="pokemon in model.pokemons" ng-click="model.clickPanel(pokemon.poke_name)">
+                          <td><img ng-src="https://raw.githubusercontent.com/msikma/pokesprite/master/icons/pokemon/regular/{{ pokemon.poke_name }}.png"></td>
+                          <td>{{ pokemon.poke_name }}</td>
+                          <td>{{ pokemon.poke_id }}</td>
+                          <td>{{ pokemon.poke_type }}</td>
+                          <td>{{ pokemon.hp }}</td>
+                          <td>{{ pokemon.attack }}</td>
+                          <td>{{ pokemon.defense }}</td>
+                          <td>{{ pokemon.sp_attack }}</td>
+                          <td>{{ pokemon.sp_defense }}</td>
+                          <td>{{ pokemon.speed }}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -63,11 +64,3 @@
         </div>
     </div>
 </div>
-
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="pull-right">
-            <a href="#" class="navbar-right"><img src="static/source_image/pokelabel.png" class="bottom-logo"></img></a>
-        </div>
-    </div>
-</nav>

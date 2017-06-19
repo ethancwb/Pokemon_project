@@ -1,11 +1,12 @@
 <div class="homepage-container">
-<img src="static/source_image/homepage-logo.png" class="homepage-logo"></img>
-<div class="homepage-logo-dressings">
-    <a href="#"><img ng-src="static/source_image/Pokemon-Fightt.png" class="top-logo-homepage"></img></a>
-    <a href="#!/login" class="homepage-btn" style="left:70vw;">Login</a>
-    <a href="#!/login" class="homepage-btn" style="left:80vw;">Our Github</a>
-    <a href="#!/login" class="homepage-btn">More about us</a>
-</div>
+    <img src="static/source_image/homepage-logo.png" class="homepage-logo"></img>
+    <div class="homepage-logo-dressings">
+        <a href="#"><img ng-src="static/source_image/Pokemon-Fightt.png" class="top-logo-homepage"></img></a>
+        <img ng-src="static/source_image/generation.png" class="top-logo-homepage-pikachu"></img>
+        <a href="#!/login" class="homepage-btn" style="left:70vw;">Login</a>
+        <a href="https://github.com/ethancwb/cs3200_Final_Project" class="homepage-btn" style="left:80vw;">Our Github</a>
+        <a href="#!/login" class="homepage-btn">More about us</a>
+    </div>
     <div class="main-container">
         <!-- <div class="video-background">
             <div class="video-foreground">
@@ -20,61 +21,72 @@
                         <div class="box">
                           <div class="container-search-field">
                               <a class="icon" ng-click="model.search(model.val)"><i class="fa fa-search"></i></a>
-                              <input type="search" id="search" ng-model="model.val" placeholder="Search..." />
+                              <input type="search" id="search" ng-model="model.val" placeholder="Search by Type/Pokedex_Id/Name" />
                           </div>
                         </div>
                     </div>
-
                     <div class="element-container">
                         <div class="row">
                             <div class="col-sm-6 col-md-4 col-lg-2">
-                                <a href="#!/searchResult/fire" class="element-button">
-                                    <img src="static/source_image/fire.png" class="element-image rounded"></img>
-                                    <div class="element-expansion">
-                                        <h3>The spirit of Fire</h3>
-                                        <h4>Click to check all Pokemons with <b>FIRE</b> type</h4>
-                                    </div>
-                                </a>
+                                <div class="element-section-fire">
+                                    <a href="#!/searchResult/fire" class="element-button">
+                                        <img src="static/source_image/fire.png" class="element-image rounded"></img>
+                                        <div class="element-expansion">
+                                            <h2>The spirit of Fire</h2>
+                                            <h4>Fire-type Pokémon are aligned with heat, often in the form of flames or lava. Examples include Vulpix, Magmar, Charmander, Cyndaquil, Torkoal, Moltres, Torchic, Entei, and Chimchar.</h4>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                             <div class="col-sm-6 col-md-4 col-lg-2">
-                                <a href="#!/searchResult/grass" class="element-button"><img src="static/source_image/grass.png" class="element-image rounded"></img>
-                                    <div class="element-expansion">
-                                        <h3>The robust of Grass</h3>
-                                        <h4>Click to check all Pokemons with <b>Grass</b> type</h4>
-                                    </div>
-                                </a>
+                                <div class="element-section-fighting">
+                                    <a href="#!/searchResult/fighting" class="element-button"><img src="static/source_image/fight.png" class="element-image rounded"></img>
+                                         <div class="element-expansion">
+                                             <h2>The robust of Fighting</h2>
+                                             <h4>Fighting-type Pokémon learn specifically labelled fighting melee attacks, such as punches and kicks. Examples include Hitmonlee, Hitmonchan, Hitmontop, Lucario, Hariyama, Mankey, and Machoke.</h4>
+                                         </div>
+                                     </a>
+                                </div>
                             </div>
                             <div class="col-sm-6 col-md-4 col-lg-2">
-                                <a href="#!/searchResult/fighting" class="element-button"><img src="static/source_image/fight.png" class="element-image rounded"></img>
-                                     <div class="element-expansion">
-                                         <h3>The robust of Fighting</h3>
-                                         <h4>Click to check all Pokemons with <b>Fighting</b> type</h4>
-                                     </div>
-                                 </a>
+                                <div class="element-section-grass">
+                                    <a href="#!/searchResult/grass" class="element-button"><img src="static/source_image/grass.png" class="element-image rounded"></img>
+                                        <div class="element-expansion">
+                                            <h2>The robust of Grass</h2>
+                                            <h4>Grass-type Pokémon have abilities and appearances associated with plant life and nature. They use many HP-recovery techniques and moves which cause various status effects to their advantage.Examples of Grass-types include Bulbasaur, Tropius, Meganium, Treecko, Celebi, Hoppip, and Sunkern.</h4>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                             <div class="col-sm-6 col-md-4 col-lg-2">
-                                <a href="#!/searchResult/water" class="element-button"><img src="static/source_image/water.png" class="element-image-first rounded"></img>
-                                    <div class="element-expansion">
-                                        <h3>The robust of Water</h3>
-                                        <h4>Click to check all Pokemons with <b>Water</b> type</h4>
-                                    </div>
-                                </a>
+                                <div class="element-section-psychic">
+                                    <a href="#!/searchResult/psychic" class="element-button"><img src="static/source_image/power.png" class="element-image-first rounded"></img>
+                                        <div class="element-expansion">
+                                            <h2>The mystery of Psychic</h2>
+                                            <h4>Psychic-type Pokémon generally have mental abilities associated with psychics, such as telekinesis, telepathy, and prescience. Examples include Alakazam, Chimecho, Espeon, Gardevoir, Mr. Mime, Jynx, Starmie and Mewtwo. </h4>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                             <div class="col-sm-6 col-md-4 col-lg-2">
-                                <a href="#!/searchResult/psychic" class="element-button"><img src="static/source_image/power.png" class="element-image-first rounded"></img>
-                                    <div class="element-expansion">
-                                        <h3>The mystery of Psychic</h3>
-                                        <h4>Click to check all Pokemons with <b>Psychic</b> type</h4>
-                                    </div>
-                                </a>
+                                <div class="element-section-eletric">
+                                    <a href="#!/searchResult/electric" class="element-button"><img src="static/source_image/light.png" class="element-image-first rounded"></img>
+                                        <div class="element-expansion">
+                                            <h2>The speed of Electric</h2>
+                                            <h4>Electric-type Pokémon have electricity-oriented powers. Electric types often have a high speed status, a respectable Special Attack, and a decent Special Defense.Some examples include Pikachu, Elekid, Raichu, Manectric, Ampharos, Raikou, Plusle, Minun, and Electrode.</h4>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                             <div class="col-sm-6 col-md-4 col-lg-2">
-                                <a href="#!/searchResult/electric" class="element-button"><img src="static/source_image/light.png" class="element-image-first rounded"></img>
-                                    <div class="element-expansion">
-                                        <h3>The speed of Electric</h3>
-                                        <h4>Click to check all Pokemons with <b>Electric</b> type</h4>
-                                    </div>
-                                </a>
+                                <div class="element-section-water">
+                                    <a href="#!/searchResult/water" class="element-button"><img src="static/source_image/water.png" class="element-image-first rounded"></img>
+                                        <div class="element-expansion">
+                                            <h2>The robust of Water</h2>
+                                            <h4>Water-type Pokémon are based on aquatic creatures, and their powers are directly related to water. Of all the types, this one has the most species attributed to it with over 100 as of Generation V. Examples of Water-Type Pokémon include Squirtle, Totodile, Mudkip, Corsola, Slowking, Staryu, Psyduck, Remoraid, Vaporeon, Seaking, Magikarp, and Kyogre.</h4>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

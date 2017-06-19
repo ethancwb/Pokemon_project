@@ -2,9 +2,10 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    // overflow: scroll;
     background-image: url('source_image/backgroud-1.png');
     background-size: cover;
+    overflow: scroll;
     // background-color: rgba(208, 211, 212,0.8);
     // background-image: url('source_image/backgroud.jpg');
 }
@@ -19,6 +20,29 @@
     }
 }
 
+@mixin gradient-linear($origin, $end) {
+    background: linear-gradient(to bottom, $origin 10%, $end);
+}
+
+.element-section-fire {
+    @include gradient-linear(rgba(192, 57, 43, 0.8), rgba(255,255,255,0.4));
+}
+.element-section-fighting {
+    @include gradient-linear(rgba(211, 84, 0, 0.8), rgba(255,255,255,0.4));
+}
+.element-section-grass {
+    @include gradient-linear(rgba(39, 174, 96, 0.8), rgba(255,255,255,0.4));
+}
+.element-section-psychic {
+    @include gradient-linear(rgba(142, 68, 173, 0.8), rgba(255,255,255,0.4));
+}
+.element-section-eletric {
+    @include gradient-linear(rgba(244, 208, 63, 0.8), rgba(255,255,255,0.4));
+}
+.element-section-water {
+    @include gradient-linear(rgba(52, 152, 219, 0.8), rgba(255,255,255,0.4));
+}
+
 .homepage-container {
     .navbar {
         background-color: rgba(255,255,255,0.1) !important;
@@ -31,7 +55,9 @@
     align-self: center;
     background-color: rgba(245, 245, 245,0.8);
     flex: 1;
-    margin: 65px 0% 65px 0%;
+    margin: 65px 0% 0 0%;
+    height: 100vh;
+    overflow-y: auto;
 }
 
 .form-control {
@@ -65,6 +91,7 @@
 
 .element-image-first {
     margin-top: 40px;
+    padding-left: 15px;
     &:hover {
         border-color: transparent !important;
         border: outset;
@@ -72,15 +99,17 @@
 }
 
 .element-expansion {
-    background-color: rgba(240, 240, 240, 0.8);
+    // background-color: rgba(240, 240, 240, 0.8);
     visibility: hidden;
     height: 60vh;
     width: inherit;
     opacity: 0;
+    padding: 0 20px 0 20px;
 }
 
 .element-image {
     margin-top: 40px;
+    padding-left: 15px;
     &:hover {
         border-color: transparent !important;
         border: outset;
@@ -88,7 +117,13 @@
 }
 
 .element-container {
-    margin-top: 15%;
+    margin-top: 20%;
+    a {
+        text-decoration: none;
+    }
+    .col-sm-6,.col-md-4,.col-lg-2 {
+        padding: 0 0 0 0;
+    }
 }
 
 .user_pokemon_container {
@@ -166,11 +201,11 @@
       position: relative;
 
       input {
-          width: 80vw;
+          width: 84vw;
           height: 150px;
           background: #fffaf0;
           border: none;
-          font-size: 10pt;
+          font-size: 1.5em;
           float: left;
           color: #63717f;
           padding-left: 45px;
@@ -190,6 +225,16 @@
           margin-top: 64px;
           z-index: 1;
           color: #4f5b66;
+        }
+    }
+}
+
+.list-view-container {
+    .flickr-search-container {
+        .container-search-field {
+            input {
+                width: 80vw !important;
+            }
         }
     }
 }

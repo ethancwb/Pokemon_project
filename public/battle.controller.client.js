@@ -5,6 +5,7 @@
 
     function BattleController($http, $routeParams, $location, $window, $scope) {
         var model = this;
+        model.uid = $routeParams.userId;
         model.log1 = [];
         model.log2 = [];
         model.log3 = [];
