@@ -6,7 +6,7 @@ USE m4wf5ifdowrsox28;
 DROP FUNCTION IF EXISTS login;
 
 DELIMITER $$
-CREATE FUNCTION login(user_name VARCHAR(45), user_password VARCHAR(45))
+CREATE FUNCTION login(user_name VARCHAR(45), user_password VARCHAR(255))
 RETURNS INT
 BEGIN
 
@@ -27,7 +27,7 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS regisration;
 
 DELIMITER $$
-CREATE PROCEDURE regisration(uid INT, user_name VARCHAR(45), user_password VARCHAR(45))
+CREATE PROCEDURE regisration(uid INT, user_name VARCHAR(45), user_password VARCHAR(255))
 BEGIN
 
 INSERT INTO users (user_id, user_type, user_name, user_password, tier) VALUES (uid, 'regular', user_name, user_password, 0);
@@ -41,7 +41,7 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS find_user_by_credential;
 
 DELIMITER $$
-CREATE PROCEDURE find_user_by_credential(user_name VARCHAR(45), user_password VARCHAR(45))
+CREATE PROCEDURE find_user_by_credential(user_name VARCHAR(45), user_password VARCHAR(255))
 BEGIN
 
 SELECT user_id FROM users u WHERE u.user_name = user_name AND u.user_password = user_password;
@@ -104,7 +104,7 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS update_user;
 
 DELIMITER $$
-CREATE PROCEDURE update_user(uid INT, user_name VARCHAR(45), user_password VARCHAR(45))
+CREATE PROCEDURE update_user(uid INT, user_name VARCHAR(45), user_password VARCHAR(255))
 BEGIN
 
 UPDATE users r SET u.user_name = user_name, u.user_password = user_password
