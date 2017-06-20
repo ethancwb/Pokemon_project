@@ -16,7 +16,11 @@ CREATE TABLE users
 	user_id						INT										PRIMARY KEY,
     user_type					ENUM('regular', 'admin')		NOT NULL,
     user_name					VARCHAR(45)					NOT NULL,
+<<<<<<< HEAD
     user_password 			VARCHAR(255)					NOT NULL,
+=======
+    user_password 			VARCHAR(100)					NOT NULL,
+>>>>>>> master
     tier 								INT					 					NOT NULL
 
 );
