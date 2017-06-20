@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ethancwb/cs3200_Final_Project#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "mysql": "2.13.0",

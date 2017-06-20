@@ -17,18 +17,18 @@ app.listen(process.env.PORT || 8080, function () {
 
 app.use(express.static('public'))
 
-var connection
-if (process.env.JAWSDB_MARIA_URL) {
-    connection = db.createConnection(process.env.JAWSDB_MARIA_URL)
-} else {
-    //local connection
-    // connection = db.createConnection({
-    //     host: 'localhost',
-    //     user: 'root',
-    //     password: 'phfandzjx',
-    //     database: 'pokemon_fight'
-    // })
-}
+// var connection
+// if (process.env.JAWSDB_MARIA_URL) {
+//     connection = db.createConnection(process.env.JAWSDB_MARIA_URL)
+// } else {
+//     //local connection
+//     // connection = db.createConnection({
+//     //     host: 'localhost',
+//     //     user: 'root',
+//     //     password: 'phfandzjx',
+//     //     database: 'pokemon_fight'
+//     // })
+// }
 
 var connection = db.createConnection("mysql://m56vff77rb877g2t:cby2rja1vlopxflt@thzz882efnak0xod.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/m4wf5ifdowrsox28")
 

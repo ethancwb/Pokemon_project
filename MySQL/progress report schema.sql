@@ -4,6 +4,11 @@
 -- CREATE DATABASE m4wf5ifdowrsox28;
 -- USE m4wf5ifdowrsox28;
 
+DROP TABLE IF EXISTS owns;
+DROP TABLE IF EXISTS admin;
+DROP TABLE IF EXISTS battle_history;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS pokemons;
 
 
 CREATE TABLE users
@@ -11,22 +16,10 @@ CREATE TABLE users
 	user_id						INT										PRIMARY KEY,
     user_type					ENUM('regular', 'admin')		NOT NULL,
     user_name					VARCHAR(45)					NOT NULL,
-    user_password 			VARCHAR(45)					NOT NULL,
+    user_password 			VARCHAR(255)					NOT NULL,
     tier 								INT					 					NOT NULL
 
 );
-
-
-CREATE TABLE admin
-(
-	user_id						INT										PRIMARY KEY,
-    
-	CONSTRAINT admin_fk_users
-    FOREIGN KEY (user_id)
-    REFERENCES users (user_id) ON UPDATE CASCADE 
-
-);
-
 
 CREATE TABLE pokemons
 (
@@ -39,6 +32,53 @@ CREATE TABLE pokemons
     sp_defense 				INT 						NOT NULL,
     speed 							INT 						NOT NULL,
     poke_type 					VARCHAR(45)  	NOT NULL
+);
+
+CREATE TABLE owns
+(
+	owns_id						INT								PRIMARY KEY  				AUTO_INCREMENT,
+	user_id 						INT 								NOT NULL,
+    poke_id 						INT								NOT NULL,
+    poke_name					VARCHAR(45)			NOT NULL,
+    hp								INT 								NOT NULL,
+    attack 							INT 								NOT NULL,
+    defense 						INT 								NOT NULL,
+    sp_attack 				 	INT 								NOT NULL,
+    sp_defense 				INT 								NOT NULL,
+    speed 							INT 								NOT NULL,
+    poke_type 					VARCHAR(45)  			NOT NULL,
+    favorite						BOOLEAN      				NOT NULL,
+    poke_current_hp 		INT								NOT NULL,
+    
+    CONSTRAINT own_fk_users
+    FOREIGN KEY (user_id)
+    REFERENCES users (user_id),
+    CONSTRAINT own_fk_pokemons
+    FOREIGN KEY (poke_id)
+    REFERENCES pokemons (poke_id)
+);
+
+CREATE TABLE admin
+(
+	user_id						INT										PRIMARY KEY,
+    
+	CONSTRAINT admin_fk_users
+    FOREIGN KEY (user_id)
+    REFERENCES users (user_id) ON UPDATE CASCADE 
+
+);
+
+
+
+CREATE TABLE battle_history
+(
+    battle_id							INT 						PRIMARY KEY,
+    user_id							INT 						NOT NULL,
+    game_result					BOOLEAN  			NOT NULL,
+    
+    CONSTRAINT battle_history_fk_users
+    FOREIGN KEY (user_id)
+    REFERENCES users (user_id) ON UPDATE CASCADE
 );
 
 
@@ -85,60 +125,23 @@ CREATE TABLE pokemons
 --     REFERENCES pokemon (poke_id) ON UPDATE CASCADE
 -- );
 
-CREATE TABLE battle_history
-(
-    battle_id							INT 						PRIMARY KEY,
-    user_id							INT 						NOT NULL,
-    game_result					BOOLEAN  			NOT NULL,
-    
-    CONSTRAINT battle_history_fk_users
-    FOREIGN KEY (user_id)
-    REFERENCES users (user_id) ON UPDATE CASCADE
-);
-
-
-
-CREATE TABLE owns
-(
-	owns_id						INT								PRIMARY KEY  				AUTO_INCREMENT,
-	user_id 						INT 								NOT NULL,
-    poke_id 						INT								NOT NULL,
-    poke_name					VARCHAR(45)			NOT NULL,
-    hp								INT 								NOT NULL,
-    attack 							INT 								NOT NULL,
-    defense 						INT 								NOT NULL,
-    sp_attack 				 	INT 								NOT NULL,
-    sp_defense 				INT 								NOT NULL,
-    speed 							INT 								NOT NULL,
-    poke_type 					VARCHAR(45)  			NOT NULL,
-    favorite						BOOLEAN      				NOT NULL,
-    poke_current_hp 		INT								NOT NULL,
-    
-    CONSTRAINT own_fk_users
-    FOREIGN KEY (user_id)
-    REFERENCES users (user_id),
-    CONSTRAINT own_fk_pokemons
-    FOREIGN KEY (poke_id)
-    REFERENCES pokemons (poke_id)
-);
-
-
-CREATE TABLE receives
-(
-	battle_id					INT,
-    user_id 					INT,
-    
-    CONSTRAINT receives_pk
-    PRIMARY KEY (battle_id, user_id),
-    
-	CONSTRAINT receives_fk_users
-    FOREIGN KEY (user_id)
-    REFERENCES users (user_id) ON UPDATE CASCADE,
-    
-	CONSTRAINT receives_fk_battle_history
-    FOREIGN KEY (battle_id)
-    REFERENCES battle_history (battle_id)
-);
+-- DROP TABLE IF EXISTS users;
+-- CREATE TABLE receives
+-- (
+-- 	battle_id					INT,
+--     user_id 					INT,
+--     
+--     CONSTRAINT receives_pk
+--     PRIMARY KEY (battle_id, user_id),
+--     
+-- 	CONSTRAINT receives_fk_users
+--     FOREIGN KEY (user_id)
+--     REFERENCES users (user_id) ON UPDATE CASCADE,
+--     
+-- 	CONSTRAINT receives_fk_battle_history
+--     FOREIGN KEY (battle_id)
+--     REFERENCES battle_history (battle_id)
+-- );
 
 
 -- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

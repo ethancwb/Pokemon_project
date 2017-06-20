@@ -1,5 +1,6 @@
 module.exports = function (app, connection, P) {
-    
+    var bcrypt = require("bcrypt-nodejs");
+
     app.post('/add2BattleHistory', function(req, res) {
         var bid = req.body.bid;
         var uid = req.body.uid;
@@ -141,16 +142,16 @@ module.exports = function (app, connection, P) {
     app.post('/userLogin', function (req, res) {
         var username = req.body.username;
         var password = req.body.password;
-        connection.query('CALL find_user_by_credential(' + "'" + username + "', " + "'" + password + "'" + ');',function(err,rows) {
-            if (err) {
-                res.sendStatus(404)
-            }
-            if (rows[0].length === 1) {
-                res.json(rows)
-            } else {
-                res.status(400).send("Wrong username or password");
-            }
-        })
+        connection.query('CALL get_user_by_name(' + "'" + username + "'" + ');', function (err, rows) {
+             if (err) {
+                 res.sendStatus(404)
+             }
+             if (bcrypt.compareSync(password, rows[0][0].user_password)) {
+                 res.json(rows)
+             } else {
+                 res.sendStatus(404)
+             }
+         })
     });
 
 
@@ -199,7 +200,7 @@ module.exports = function (app, connection, P) {
     app.post('/registeration', function(req, res) {
         var uid = req.body.uid;
         var username = req.body.username;
-        var password = req.body.password;
+        var password = bcrypt.hashSync(req.body.password);
         connection.query('CALL regisration(' + uid + ", '" + username + "', " + "'" + password + "'" + ');',function(err,rows) {
             if (err) {
                 res.sendStatus(404)
