@@ -116,6 +116,19 @@
         var model = this;
         model.searchPokemonByType = searchPokemonByType;
 
+        // model.getPokeType = function (pid) {
+        //     var obj = {
+        //         id : pid
+        //     }
+        //     return $http.post('/api/getTypeForId', obj)
+        //                 .then(function (response) {
+        //                     console.log(response.data)
+        //                     return response.data
+        //                 })
+        // }
+        // model.getStrongAgainst(pokemon.poke_type)
+        // model.getWeakAgainst(pokemon.poke_type)
+
         function getBerries() {
             return $http.get('/searchBerry')
                         .then(function (response) {

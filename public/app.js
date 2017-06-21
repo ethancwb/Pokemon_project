@@ -176,21 +176,24 @@ module.exports = function (app, connection, P) {
                  if (err) {
                      res.sendStatus(404)
                  }
+                 console.log(rows)
                  res.json(rows)
              })
         } else {
             if (parseInt(type) == type) {
-                connection.query('CALL get_pokemon_by_id(' + "'" + type + "'" + ');', function (err, rows) {
+                connection.query('CALL getInforTableById(' + "'" + type + "'" + ');', function (err, rows) {
                      if (err) {
                          res.sendStatus(404)
                      }
+                     console.log(rows)
                      res.json(rows)
                  })
             } else {
-                connection.query('CALL get_pokemon_by_name(' + "'" + type + "'" + ');', function (err, rows) {
+                connection.query('CALL getInforTableByName(' + "'" + type + "'" + ');', function (err, rows) {
                      if (err) {
                          res.sendStatus(404)
                      }
+                     console.log(rows)
                      res.json(rows)
                  })
             }
@@ -228,6 +231,16 @@ module.exports = function (app, connection, P) {
              res.json(rows)
          })
     })
+
+    // app.post('/api/getTypeForId', function (req, res) {
+    //     var id = req.body.id
+    //     connection.query('CALL getTypesForId(' + id + ');', function (err, rows) {
+    //         if (err) {
+    //             res.sendStatus(404)
+    //         }
+    //         res.json(rows)
+    //     })
+    // })
 
     // function getAllName() {
     //     for (i = 300; i < 310; i++) {
