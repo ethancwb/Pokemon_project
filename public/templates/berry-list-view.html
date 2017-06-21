@@ -11,11 +11,6 @@
 </nav>
 
 <div class="main-container">
-    <!-- <div class="video-background">
-        <div class="video-foreground">
-          <iframe src="https://www.youtube.com/embed/ze6zcaemf7M?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=ze6zcaemf7M" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div> -->
     <div class="content-container list-view-container">
         <div class="row">
             <div class="col-sm-12">
@@ -34,29 +29,21 @@
                   <thead>
                     <tr>
                       <th>Image</th>
-                      <th>Name</th>
-                      <th>Pokedex No.</th>
-                      <th>Type</th>
-                      <th>Base_HP</th>
-                      <th>Base_Attack</th>
-                      <th>Base_Defence</th>
-                      <th>Base_SpecialAttack</th>
-                      <th>Base_SpecialDefence</th>
-                      <th>Base_Speed</th>
+                      <th>Berry_Name</th>
+                      <th>Berry No.</th>
+                      <th>Growth_time</th>
+                      <th>Natural_gift_power</th>
+                      <th>Size</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr ng-repeat="pokemon in model.pokemons" ng-click="model.clickPanel(pokemon.poke_name)">
-                          <td><img ng-src="https://raw.githubusercontent.com/msikma/pokesprite/master/icons/pokemon/regular/{{ pokemon.poke_name }}.png"></td>
-                          <td>{{ pokemon.poke_name }}</td>
-                          <td>{{ pokemon.poke_id }}</td>
-                          <td>{{ pokemon.poke_type }}</td>
-                          <td>{{ pokemon.hp }}</td>
-                          <td>{{ pokemon.attack }}</td>
-                          <td>{{ pokemon.defense }}</td>
-                          <td>{{ pokemon.sp_attack }}</td>
-                          <td>{{ pokemon.sp_defense }}</td>
-                          <td>{{ pokemon.speed }}</td>
+                    <tr ng-repeat="berry in model.berries" ng-click="model.berryClickPanel(berry.berry_name)">
+                          <td><img ng-src="https://raw.githubusercontent.com/msikma/pokesprite/master/icons/berry/{{ berry.berry_name }}.png"></td>
+                          <td>{{ berry.berry_name }}</td>
+                          <td>{{ berry.berry_id }}</td>
+                          <td>{{ berry.growth_time }}</td>
+                          <td>{{ berry.natural_gift_power }}</td>
+                          <td>{{ berry.size }}</td>
                     </tr>
                   </tbody>
                 </table>

@@ -297,7 +297,50 @@ END IF;
 END $$
 DELIMITER ;
 
+-- add type -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS addPokeType;
 
+DELIMITER $$
+CREATE PROCEDURE addPokeType(poke_id INT, poke_type VARCHAR(45))
+BEGIN
 
+INSERT INTO poke_types (poke_id, poke_type) VALUES (poke_id, poke_type);
 
+END $$
+DELIMITER ;
 
+-- search by type -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS getAllTypes;
+
+DELIMITER $$
+CREATE PROCEDURE getAllTypes(poke_type VARCHAR(45))
+BEGIN
+
+SELECT * FROM pokemons p JOIN poke_types pt ON p.poke_id = pt.poke_id WHERE poke_type = pt.poke_type;
+
+END $$
+DELIMITER ;
+
+-- add berry -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS addBerry;
+
+DELIMITER $$
+CREATE PROCEDURE addBerry(berryid INT, berryname VARCHAR(45), growthtime INT, naturalgiftpower INT, size INT)
+BEGIN
+
+INSERT INTO berry(berry_id, berry_name, growth_time, natural_gift_power, size) VALUES (berryid, berryname, growthtime, naturalgiftpower, size);
+
+END $$
+DELIMITER ;
+
+-- list all berry -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS addBerry;
+
+DELIMITER $$
+CREATE PROCEDURE getAllBerries()
+BEGIN
+
+SELECT * FROM berry;
+
+END $$
+DELIMITER ;
