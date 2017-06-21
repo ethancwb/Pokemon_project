@@ -6,7 +6,7 @@ USE m4wf5ifdowrsox28;
 DROP FUNCTION IF EXISTS login;
 
 DELIMITER $$
-CREATE FUNCTION login(user_name VARCHAR(45), user_password VARCHAR(45))
+CREATE FUNCTION login(user_name VARCHAR(45), user_password VARCHAR(255))
 RETURNS INT
 BEGIN
 
@@ -27,7 +27,7 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS regisration;
 
 DELIMITER $$
-CREATE PROCEDURE regisration(uid INT, user_name VARCHAR(45), user_password VARCHAR(45))
+CREATE PROCEDURE regisration(uid INT, user_name VARCHAR(45), user_password VARCHAR(255))
 BEGIN
 
 INSERT INTO users (user_id, user_type, user_name, user_password, tier) VALUES (uid, 'regular', user_name, user_password, 0);
@@ -41,7 +41,7 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS find_user_by_credential;
 
 DELIMITER $$
-CREATE PROCEDURE find_user_by_credential(user_name VARCHAR(45), user_password VARCHAR(45))
+CREATE PROCEDURE find_user_by_credential(user_name VARCHAR(45), user_password VARCHAR(255))
 BEGIN
 
 SELECT user_id FROM users u WHERE u.user_name = user_name AND u.user_password = user_password;
@@ -104,7 +104,7 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS update_user;
 
 DELIMITER $$
-CREATE PROCEDURE update_user(uid INT, user_name VARCHAR(45), user_password VARCHAR(45))
+CREATE PROCEDURE update_user(uid INT, user_name VARCHAR(45), user_password VARCHAR(255))
 BEGIN
 
 UPDATE users r SET u.user_name = user_name, u.user_password = user_password
@@ -297,7 +297,50 @@ END IF;
 END $$
 DELIMITER ;
 
+-- add type -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS addPokeType;
 
+DELIMITER $$
+CREATE PROCEDURE addPokeType(poke_id INT, poke_type VARCHAR(45))
+BEGIN
 
+INSERT INTO poke_types (poke_id, poke_type) VALUES (poke_id, poke_type);
 
+END $$
+DELIMITER ;
 
+-- search by type -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS getAllTypes;
+
+DELIMITER $$
+CREATE PROCEDURE getAllTypes(poke_type VARCHAR(45))
+BEGIN
+
+SELECT * FROM pokemons p JOIN poke_types pt ON p.poke_id = pt.poke_id WHERE poke_type = pt.poke_type;
+
+END $$
+DELIMITER ;
+
+-- add berry -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS addBerry;
+
+DELIMITER $$
+CREATE PROCEDURE addBerry(berryid INT, berryname VARCHAR(45), growthtime INT, naturalgiftpower INT, size INT)
+BEGIN
+
+INSERT INTO berry(berry_id, berry_name, growth_time, natural_gift_power, size) VALUES (berryid, berryname, growthtime, naturalgiftpower, size);
+
+END $$
+DELIMITER ;
+
+-- list all berry -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS addBerry;
+
+DELIMITER $$
+CREATE PROCEDURE getAllBerries()
+BEGIN
+
+SELECT * FROM berry;
+
+END $$
+DELIMITER ;
