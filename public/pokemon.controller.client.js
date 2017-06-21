@@ -168,22 +168,6 @@
         model.register = register;
         model.login = login;
 
-        //
-        // $.getJSON('http://pokeapi.co/api/v2/stat/1/', function(data) {
-        //     console.log(data)
-        // })
-
-        // function searchPokemonByType () {
-        //     var pokemon_type = $routeParams.type;
-        //     console.log(pokemon_type);
-        //     alert (
-        //     connection.query("SELECT * FROM registered_users", function (err, result) {
-        //         if (err) throw err;
-        //         console.log(result);
-        //     }));
-        //
-        // }
-
         function login(username, password) {
             var url = '/userLogin';
             var user ={
@@ -203,7 +187,7 @@
         function register (username, password, rePassword) {
             var url = '/registeration';
             var user = {
-                uid: new Date().getUTCMilliseconds(),
+                uid: (new Date).getTime(),
                 username: username,
                 password: password
             };

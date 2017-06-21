@@ -281,7 +281,7 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS addBattleHistory;
 
 DELIMITER $$
-CREATE PROCEDURE addBattleHistory(bid INT, uid INT, result INT)
+CREATE PROCEDURE addBattleHistory(bid VARCHAR(45), uid INT, result INT)
 BEGIN
 
 DECLARE user_winning_number INT;

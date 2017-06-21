@@ -4,7 +4,7 @@ module.exports = function (app, connection, P) {
 
     app.post('/add2BattleHistory', function(req, res) {
         var bid = req.body.bid;
-        var uid = req.body.uid;
+        var uid = parseInt(req.body.uid);
         var result = req.body.result;
 
         connection.query('CALL addBattleHistory(' + bid + ", " + uid + ", " + result + ');',function(err, rows) {

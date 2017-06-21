@@ -80,9 +80,9 @@ CREATE TABLE admin
 
 CREATE TABLE battle_history
 (
-    battle_id							INT 						PRIMARY KEY,
-    user_id							INT 						NOT NULL,
-    game_result					BOOLEAN  			NOT NULL,
+    battle_id							VARCHAR(45) 						PRIMARY KEY,
+    user_id							INT 											NOT NULL,
+    game_result					BOOLEAN  								NOT NULL,
 
     CONSTRAINT battle_history_fk_users
     FOREIGN KEY (user_id)
