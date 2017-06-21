@@ -202,7 +202,7 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS add_new_own;
 
 DELIMITER $$
-CREATE PROCEDURE add_new_own(uid INT, pid INT, 
+CREATE PROCEDURE add_new_own(uid INT, pid INT,
 p_hp INT, p_attack INT, p_defense INT, p_sp_attack INT, p_sp_defense INT, p_speed INT)
 BEGIN
 
@@ -218,8 +218,8 @@ DECLARE new_poke_type VARCHAR(45);
 
 SELECT COUNT(*) INTO numberOfPokemons FROM owns o WHERE o.user_id = uid;
 
-SELECT 
-poke_name, (hp + p_hp), (attack + p_attack), (defense + p_defense), (sp_attack + p_sp_attack), (sp_defense + p_sp_defense), (speed + p_speed), poke_type 
+SELECT
+poke_name, (hp + p_hp), (attack + p_attack), (defense + p_defense), (sp_attack + p_sp_attack), (sp_defense + p_sp_defense), (speed + p_speed), poke_type
 INTO new_poke_name, new_poke_hp, new_poke_attack, new_poke_defense, new_poke_sp_attack, new_poke_sp_defense,
 new_poke_speed, new_poke_type
 FROM pokemons p WHERE p.poke_id = pid;
@@ -290,7 +290,7 @@ INSERT INTO battle_history VALUES(bid, uid, result);
 
 SELECT COUNT(*) INTO user_winning_number FROM battle_history WHERE battle_history.user_id = uid AND battle_history.game_result = 1;
 
-IF (user_winning_number != 0) AND (user_winning_number % 10 = 0) 
+IF (user_winning_number != 0) AND (user_winning_number % 10 = 0)
 THEN UPDATE users SET users.tier = (user_winning_number / 10);
 END IF;
 
@@ -399,6 +399,7 @@ BEGIN
 SELECT weak_against_type FROM type_weak_against WHERE base_type = basetype;
 
 END $$
+<<<<<<< HEAD
 DELIMITER ;
 
 -- get Information table by ID -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -432,3 +433,6 @@ WHERE p.poke_name = poke_name;
 
 END $$
 DELIMITER ;
+=======
+DELIMITER ;
+>>>>>>> origin/master

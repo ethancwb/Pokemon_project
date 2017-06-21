@@ -28,6 +28,7 @@
                                     <p>"sp_Attack: {{model.userBattleTeam[0].sp_attack}}"</p>
                                     <p>"sp_Defense: {{model.userBattleTeam[0].sp_defense}}"</p>
                                     <p>"Speed: {{model.userBattleTeam[0].speed}}"</p>
+                                    <progress id="u_health1" value={{model.battleRecord1[0]}} max={{model.userBattleTeam[0].hp}}></progress>
                                 </div>
                             </div>
                         </div>
@@ -35,7 +36,7 @@
                     <div class="col-sm-4">
                         <div class="battle-log-container"; style="overflow-y: scroll;">
                             <ul class="list-group">
-                                <li ng-repeat="log1 in model.log1" class="list-group-item">
+                                <li ng-repeat="log1 in model.log1 track by $index" class="list-group-item">
                                     <p>{{log1}}</p>
                                 </li>
                             </ul>
@@ -52,6 +53,7 @@
                                     <p>"sp_Attack: {{model.randomBattleTeam[0].sp_attack}}"</p>
                                     <p>"sp_Defense: {{model.randomBattleTeam[0].sp_defense}}"</p>
                                     <p>"Speed: {{model.randomBattleTeam[0].speed}}"</p>
+                                    <progress id="c_health1" value={{model.battleRecord1[6]}} max={{model.randomBattleTeam[0].hp}}></progress>
                                 </div>
                             </div>
                             <div class="col-sm-5">
@@ -74,6 +76,7 @@
                                     <p>"sp_Attack: {{model.userBattleTeam[1].sp_attack}}"</p>
                                     <p>"sp_Defense: {{model.userBattleTeam[1].sp_defense}}"</p>
                                     <p>"Speed: {{model.userBattleTeam[1].speed}}"</p>
+                                    <progress id="u_health2" value={{model.battleRecord2[0]}} max={{model.userBattleTeam[1].hp}}></progress>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +84,7 @@
                     <div class="col-sm-4">
                         <div class="battle-log-container"; style="overflow-y: scroll;">
                             <ul class="list-group">
-                                <li ng-repeat="log2 in model.log2" class="list-group-item">
+                                <li ng-repeat="log2 in model.log2 track by $index" class="list-group-item">
                                     <p>{{log2}}</p>
                                 </li>
                             </ul>
@@ -98,6 +101,7 @@
                                     <p>"sp_Attack: {{model.randomBattleTeam[1].sp_attack}}"</p>
                                     <p>"sp_Defense: {{model.randomBattleTeam[1].sp_defense}}"</p>
                                     <p>"Speed: {{model.randomBattleTeam[1].speed}}"</p>
+                                    <progress id="c_health2" value={{model.battleRecord2[6]}} max={{model.randomBattleTeam[1].hp}}></progress>
                                 </div>
                             </div>
                             <div class="col-sm-5">
@@ -120,6 +124,7 @@
                                     <p>"sp_Attack: {{model.userBattleTeam[2].sp_attack}}"</p>
                                     <p>"sp_Defense: {{model.userBattleTeam[2].sp_defense}}"</p>
                                     <p>"Speed: {{model.userBattleTeam[2].speed}}"</p>
+                                    <progress id="u_health3" value={{model.battleRecord3[0]}} max={{model.userBattleTeam[2].hp}}></progress>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +132,7 @@
                     <div class="col-sm-4">
                         <div class="battle-log-container"; style="overflow-y: scroll;">
                             <ul class="list-group">
-                                <li ng-repeat="log3 in model.log3" class="list-group-item">
+                                <li ng-repeat="log3 in model.log3 track by $index" class="list-group-item">
                                     <p>{{log3}}</p>
                                 </li>
                             </ul>
@@ -144,6 +149,7 @@
                                     <p>"sp_Attack: {{model.randomBattleTeam[2].sp_attack}}"</p>
                                     <p>"sp_Defense: {{model.randomBattleTeam[2].sp_defense}}"</p>
                                     <p>"Speed: {{model.randomBattleTeam[2].speed}}"</p>
+                                    <progress id="c_health3" value={{model.battleRecord3[6]}} max={{model.randomBattleTeam[2].hp}}></progress>
                                 </div>
                             </div>
                             <div class="col-sm-5">
