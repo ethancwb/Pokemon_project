@@ -109,6 +109,13 @@
         var model = this;
         model.searchPokemonByType = searchPokemonByType;
 
+        function getBerries() {
+            return $http.get('/searchBerry')
+                        .then(function (response) {
+                            model.berries = response.data[0]
+                        })
+        }
+
         function searchPokemonByType () {
             var url = '/getPokemonByType';
             var type = $routeParams.type;
@@ -124,13 +131,6 @@
                 function error(err) {
                     return err;
                 }
-        }
-
-        function getBerries() {
-            return $http.get('/searchBerry')
-                        .then(function (response) {
-                            model.berries = response.data[0]
-                        })
         }
 
         model.clickPanel = function (name) {
