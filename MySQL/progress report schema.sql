@@ -98,6 +98,39 @@ CREATE TABLE berry
     size	INT
 );
 
+CREATE TABLE type_table
+(
+	pokemon_type		VARCHAR(20)			PRIMARY KEY
+);
+
+CREATE TABLE type_weak_against
+(
+	weak_relation_id				INT				PRIMARY KEY			AUTO_INCREMENT,
+    base_type						VARCHAR(20),
+    weak_against_type				VARCHAR(20),
+    
+	CONSTRAINT base_fk_type
+    FOREIGN KEY (base_type)
+    REFERENCES type_table (pokemon_type) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT weak_against_fk_type
+    FOREIGN KEY (weak_against_type)
+    REFERENCES type_table (pokemon_type) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE type_strong_against
+(
+	strong_relation_id				INT				PRIMARY KEY			AUTO_INCREMENT,
+    origin_type						VARCHAR(20),
+    strong_against_type				VARCHAR(20),
+    
+	CONSTRAINT origin_fk_type
+    FOREIGN KEY (origin_type)
+    REFERENCES type_table (pokemon_type) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT strong_against_fk_type
+    FOREIGN KEY (strong_against_type)
+    REFERENCES type_table (pokemon_type) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
 
 -- CREATE TABLE battle
 -- (

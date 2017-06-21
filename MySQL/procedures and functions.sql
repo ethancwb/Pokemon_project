@@ -57,10 +57,10 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS get_user_by_name;
 
 DELIMITER $$
-CREATE PROCEDURE get_user_by_name(user_name VARCHAR(45))
+CREATE PROCEDURE get_user_by_name(usern VARCHAR(255))
 BEGIN
 
-SELECT user_id FROM users u WHERE u.user_name = use_name;
+SELECT * FROM users u WHERE u.user_name = usern;
 
 
 END $$
@@ -313,10 +313,30 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS getAllTypes;
 
 DELIMITER $$
-CREATE PROCEDURE getAllTypes(poke_type VARCHAR(45))
+CREATE PROCEDURE getAllTypes(poke_t VARCHAR(45))
 BEGIN
 
-SELECT * FROM pokemons p JOIN poke_types pt ON p.poke_id = pt.poke_id WHERE poke_type = pt.poke_type;
+SELECT firstList.poke_id, firstList.poke_name, firstList.hp, firstList.attack,
+ firstList.defense, firstList.sp_attack, firstList.sp_defense, firstList.speed,
+ CONCAT_WS(',',matched_type, poke_type)  AS poke_types, GROUP_CONCAT(DISTINCT tsa.strong_against_type) AS strong_against, GROUP_CONCAT(DISTINCT twa.weak_against_type) AS weak_against FROM
+(SELECT p.poke_id, p.poke_name, p.hp, p.attack, p.defense, p.sp_attack, p.sp_defense, p.speed, pt.poke_type AS matched_type
+FROM pokemons p JOIN poke_types pt ON p.poke_id = pt.poke_id WHERE pt.poke_type = poke_t) AS firstList
+JOIN poke_types ON firstList.poke_id = poke_types.poke_id
+JOIN type_strong_against tsa ON firstList.matched_type = tsa.origin_type or poke_type = tsa.origin_type
+JOIN type_weak_against twa ON firstList.matched_type = twa.base_type or poke_type = twa.base_type
+GROUP BY firstList.poke_id, firstList.poke_name;
+
+END $$
+DELIMITER ;
+
+-- search tyeplist by poke_id -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS getTypesForId;
+
+DELIMITER $$
+CREATE PROCEDURE getTypesForId(pid INT)
+BEGIN
+
+SELECT poke_type FROM poke_types WHERE poke_id = pid;
 
 END $$
 DELIMITER ;
@@ -341,6 +361,74 @@ CREATE PROCEDURE getAllBerries()
 BEGIN
 
 SELECT * FROM berry;
+
+END $$
+DELIMITER ;
+
+-- Add strong against relation -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS addStrongAgainst;
+
+DELIMITER $$
+CREATE PROCEDURE addStrongAgainst(otype VARCHAR(20), atype VARCHAR(20))
+BEGIN
+
+INSERT INTO type_strong_against(origin_type, strong_against_type) VALUES (otype, atype);
+
+END $$
+DELIMITER ;
+
+-- check strong against -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS searchStrongAgainst;
+
+DELIMITER $$
+CREATE PROCEDURE searchStrongAgainst(basetype VARCHAR(20))
+BEGIN
+
+SELECT strong_against_type FROM type_strong_against WHERE origin_type = basetype;
+
+END $$
+DELIMITER ;
+
+-- check weak against -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS searchWeakAgainst;
+
+DELIMITER $$
+CREATE PROCEDURE searchWeakAgainst(basetype VARCHAR(20))
+BEGIN
+
+SELECT weak_against_type FROM type_weak_against WHERE base_type = basetype;
+
+END $$
+DELIMITER ;
+
+-- get Information table by ID -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS getInforTableById;
+
+DELIMITER $$
+CREATE PROCEDURE getInforTableById(pid INT)
+BEGIN
+
+SELECT p.poke_id, p.poke_name, p.hp, p.attack, p.defense, p.sp_attack, p.sp_defense, p.speed, GROUP_CONCAT(DISTINCT pt.poke_type) AS poke_types, GROUP_CONCAT(DISTINCT tsa.strong_against_type) AS strong_against, GROUP_CONCAT(DISTINCT twa.weak_against_type) AS weak_against
+FROM pokemons p JOIN poke_types pt ON p.poke_id = pt.poke_id 
+JOIN type_strong_against tsa ON pt.poke_type = tsa.origin_type
+JOIN type_weak_against twa ON pt.poke_type = twa.base_type
+WHERE p.poke_id = pid;
+
+END $$
+DELIMITER ;
+
+-- get Information table by name -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS getInforTableByName;
+
+DELIMITER $$
+CREATE PROCEDURE getInforTableByName(poke_name VARCHAR(45))
+BEGIN
+
+SELECT p.poke_id, p.poke_name, p.hp, p.attack, p.defense, p.sp_attack, p.sp_defense, p.speed, GROUP_CONCAT(DISTINCT pt.poke_type) AS poke_types, GROUP_CONCAT(DISTINCT tsa.strong_against_type) AS strong_against, GROUP_CONCAT(DISTINCT twa.weak_against_type) AS weak_against
+FROM pokemons p JOIN poke_types pt ON p.poke_id = pt.poke_id 
+JOIN type_strong_against tsa ON pt.poke_type = tsa.origin_type
+JOIN type_weak_against twa ON pt.poke_type = twa.base_type
+WHERE p.poke_name = poke_name;
 
 END $$
 DELIMITER ;
