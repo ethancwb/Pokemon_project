@@ -334,7 +334,7 @@ END $$
 DELIMITER ;
 
 -- list all berry -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-DROP PROCEDURE IF EXISTS addBerry;
+DROP PROCEDURE IF EXISTS getAllBerries;
 
 DELIMITER $$
 CREATE PROCEDURE getAllBerries()
