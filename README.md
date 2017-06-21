@@ -1,5 +1,5 @@
-Project: Pokemon Fight <br />
-Creator: Wenbin Chen & Scott Chen <br />
+# Project: Pokemon Fight <br />
+# Creator: Wenbin Chen & Scott Chen <br />
 URL: https://cs3200-final-project.herokuapp.com/#!/ <br />
 
 
