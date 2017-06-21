@@ -104,7 +104,7 @@
                         })
         }
     }
-    
+
     function getBerries() {
     return $http.get('/searchBerry')
                 .then(function (response) {
@@ -160,9 +160,8 @@
                 }
             }
         }
-
-        searchPokemonByType()
         getBerries()
+        searchPokemonByType()
     }
 
     function PPController ($http, $routeParams, $location, $window, $scope) {
