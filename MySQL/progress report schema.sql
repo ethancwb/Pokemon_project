@@ -108,7 +108,11 @@ CREATE TABLE type_weak_against
 	weak_relation_id				INT				PRIMARY KEY			AUTO_INCREMENT,
     base_type						VARCHAR(20),
     weak_against_type				VARCHAR(20),
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> origin/master
 	CONSTRAINT base_fk_type
     FOREIGN KEY (base_type)
     REFERENCES type_table (pokemon_type) ON UPDATE CASCADE ON DELETE CASCADE,
@@ -122,7 +126,11 @@ CREATE TABLE type_strong_against
 	strong_relation_id				INT				PRIMARY KEY			AUTO_INCREMENT,
     origin_type						VARCHAR(20),
     strong_against_type				VARCHAR(20),
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> origin/master
 	CONSTRAINT origin_fk_type
     FOREIGN KEY (origin_type)
     REFERENCES type_table (pokemon_type) ON UPDATE CASCADE ON DELETE CASCADE,

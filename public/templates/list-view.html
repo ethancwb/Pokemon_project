@@ -43,6 +43,8 @@
                       <th>Base_SpecialAttack</th>
                       <th>Base_SpecialDefence</th>
                       <th>Base_Speed</th>
+                      <th>Strong_against</th>
+                      <th>Weak_against</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -50,13 +52,15 @@
                           <td><img ng-src="https://raw.githubusercontent.com/msikma/pokesprite/master/icons/pokemon/regular/{{ pokemon.poke_name }}.png"></td>
                           <td>{{ pokemon.poke_name }}</td>
                           <td>{{ pokemon.poke_id }}</td>
-                          <td>{{ pokemon.poke_type }}</td>
+                          <td>{{ pokemon.poke_types }}</td>
                           <td>{{ pokemon.hp }}</td>
                           <td>{{ pokemon.attack }}</td>
                           <td>{{ pokemon.defense }}</td>
                           <td>{{ pokemon.sp_attack }}</td>
                           <td>{{ pokemon.sp_defense }}</td>
                           <td>{{ pokemon.speed }}</td>
+                          <td>{{ pokemon.strong_against }}</td>
+                          <td>{{ pokemon.weak_against }}</td>
                     </tr>
                   </tbody>
                 </table>
