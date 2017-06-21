@@ -1,5 +1,5 @@
 -- DROP DATABASE IF EXISTS m4wf5ifdowrsox28;
--- 
+--
 -- CREATE DATABASE m4wf5ifdowrsox28;
 -- USE m4wf5ifdowrsox28;
 
@@ -38,7 +38,7 @@ CREATE TABLE poke_types
 	relation_id						INT							PRIMARY KEY			AUTO_INCREMENT,
     poke_id							INT,
     poke_type						VARCHAR(45)		NOT NULL,
-    
+
     CONSTRAINT poke_fk_id
     FOREIGN KEY (poke_id)
     REFERENCES pokemons (poke_id) ON UPDATE CASCADE ON DELETE CASCADE
@@ -59,7 +59,7 @@ CREATE TABLE owns
     poke_type 					VARCHAR(45)  			NOT NULL,
     favorite						BOOLEAN      				NOT NULL,
     poke_current_hp 		INT								NOT NULL,
-    
+
     CONSTRAINT own_fk_users
     FOREIGN KEY (user_id)
     REFERENCES users (user_id),
@@ -71,7 +71,7 @@ CREATE TABLE owns
 CREATE TABLE admin
 (
 	user_id						INT										PRIMARY KEY,
-    
+
 	CONSTRAINT admin_fk_users
     FOREIGN KEY (user_id)
     REFERENCES users (user_id) ON UPDATE CASCADE ON DELETE CASCADE
@@ -83,7 +83,7 @@ CREATE TABLE battle_history
     battle_id							INT 						PRIMARY KEY,
     user_id							INT 						NOT NULL,
     game_result					BOOLEAN  			NOT NULL,
-    
+
     CONSTRAINT battle_history_fk_users
     FOREIGN KEY (user_id)
     REFERENCES users (user_id) ON UPDATE CASCADE ON DELETE CASCADE
@@ -96,6 +96,39 @@ CREATE TABLE berry
     growth_time		INT,
     natural_gift_power  INT,
     size	INT
+);
+
+CREATE TABLE type_table
+(
+	pokemon_type		VARCHAR(20)			PRIMARY KEY
+);
+
+CREATE TABLE type_weak_against
+(
+	weak_relation_id				INT				PRIMARY KEY			AUTO_INCREMENT,
+    base_type						VARCHAR(20),
+    weak_against_type				VARCHAR(20),
+
+	CONSTRAINT base_fk_type
+    FOREIGN KEY (base_type)
+    REFERENCES type_table (pokemon_type) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT weak_against_fk_type
+    FOREIGN KEY (weak_against_type)
+    REFERENCES type_table (pokemon_type) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE type_strong_against
+(
+	strong_relation_id				INT				PRIMARY KEY			AUTO_INCREMENT,
+    origin_type						VARCHAR(20),
+    strong_against_type				VARCHAR(20),
+
+	CONSTRAINT origin_fk_type
+    FOREIGN KEY (origin_type)
+    REFERENCES type_table (pokemon_type) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT strong_against_fk_type
+    FOREIGN KEY (strong_against_type)
+    REFERENCES type_table (pokemon_type) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 
@@ -113,7 +146,7 @@ CREATE TABLE berry
 --     game_2_status 			INT 						NOT NULL,
 --     game_3_status 			INT 						NOT NULL,
 --     game_result				BOOLEAN           NOT NULL,
---     
+--
 --     CONSTRAINT battle_pk
 --     PRIMARY KEY (user_1_id, user_2_id),
 --     CONSTRAINT battle_user1_fk_user
@@ -147,14 +180,14 @@ CREATE TABLE berry
 -- (
 -- 	battle_id					INT,
 --     user_id 					INT,
---     
+--
 --     CONSTRAINT receives_pk
 --     PRIMARY KEY (battle_id, user_id),
---     
+--
 -- 	CONSTRAINT receives_fk_users
 --     FOREIGN KEY (user_id)
 --     REFERENCES users (user_id) ON UPDATE CASCADE,
---     
+--
 -- 	CONSTRAINT receives_fk_battle_history
 --     FOREIGN KEY (battle_id)
 --     REFERENCES battle_history (battle_id)

@@ -40,7 +40,6 @@
         }
 
         function add2Team(pokemonOwnsUserId, pokemonOwnsId) {
-            console.log('length is: ' + model.battlePokemons.length);
             var url = '/add2Team';
             var ownsId = {
                 userId: pokemonOwnsUserId,
