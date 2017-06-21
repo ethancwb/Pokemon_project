@@ -117,14 +117,28 @@
                 .then(renderList, error)
                 function renderList (response) {
                     model.pokemons = response.data[0];
+                    if (model.pokemons.length === 0) {
+                        model.error = "Searched a wrong term"
+                    }
                 }
                 function error(err) {
                     return err;
                 }
         }
 
+        function getBerries() {
+            return $http.get('/searchBerry')
+                        .then(function (response) {
+                            model.berries = response.data[0]
+                        })
+        }
+
         model.clickPanel = function (name) {
             $window.location.href = 'http://www.pokemon.com/us/pokedex/' + name
+        }
+
+        model.berryClickPanel = function (name) {
+            $window.location.href = 'http://bulbapedia.bulbagarden.net/wiki/' + name
         }
 
         model.search = function (val) {
@@ -132,11 +146,16 @@
                 model.error = "search field can not be empty!"
                 return
             } else {
-                $location.url('/searchResult/' + val)
+                if (val === 'berry') {
+                    $location.url('/searchBerry')
+                } else {
+                    $location.url('/searchResult/' + val)
+                }
             }
         }
 
         searchPokemonByType()
+        getBerries()
     }
 
     function PPController ($http, $routeParams, $location, $window, $scope) {
@@ -199,7 +218,11 @@
                 model.error = "search field can not be empty!"
                 return
             } else {
-                $location.url('/searchResult/' + val)
+                if (val === 'berry') {
+                    $location.url('/searchBerry')
+                } else {
+                    $location.url('/searchResult/' + val)
+                }
             }
         }
     }

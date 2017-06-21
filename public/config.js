@@ -25,6 +25,11 @@
                         controller:'SearchPokemonController',
                         controllerAs: 'model'
                     })
+                    .when('/searchBerry', {
+                        templateUrl:'templates/berry-list-view.html',
+                        controller:'SearchPokemonController',
+                        controllerAs: 'model'
+                    })
                     .when('/user/:userId/battle', {
                         templateUrl:'templates/battle.html',
                         controller:'BattleController',

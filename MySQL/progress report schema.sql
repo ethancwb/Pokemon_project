@@ -1,6 +1,5 @@
 -- DROP DATABASE IF EXISTS m4wf5ifdowrsox28;
-
-
+-- 
 -- CREATE DATABASE m4wf5ifdowrsox28;
 -- USE m4wf5ifdowrsox28;
 
@@ -9,7 +8,7 @@ DROP TABLE IF EXISTS admin;
 DROP TABLE IF EXISTS battle_history;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS pokemons;
-
+DROP TABLE IF EXISTS poke_types;
 
 CREATE TABLE users
 (
@@ -32,6 +31,17 @@ CREATE TABLE pokemons
     sp_defense 				INT 						NOT NULL,
     speed 							INT 						NOT NULL,
     poke_type 					VARCHAR(45)  	NOT NULL
+);
+
+CREATE TABLE poke_types
+(
+	relation_id						INT							PRIMARY KEY			AUTO_INCREMENT,
+    poke_id							INT,
+    poke_type						VARCHAR(45)		NOT NULL,
+    
+    CONSTRAINT poke_fk_id
+    FOREIGN KEY (poke_id)
+    REFERENCES pokemons (poke_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE owns
@@ -64,11 +74,9 @@ CREATE TABLE admin
     
 	CONSTRAINT admin_fk_users
     FOREIGN KEY (user_id)
-    REFERENCES users (user_id) ON UPDATE CASCADE 
+    REFERENCES users (user_id) ON UPDATE CASCADE ON DELETE CASCADE
 
 );
-
-
 
 CREATE TABLE battle_history
 (
@@ -78,7 +86,16 @@ CREATE TABLE battle_history
     
     CONSTRAINT battle_history_fk_users
     FOREIGN KEY (user_id)
-    REFERENCES users (user_id) ON UPDATE CASCADE
+    REFERENCES users (user_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE berry
+(
+	berry_id		INT		PRIMARY KEY,
+    berry_name		VARCHAR(45),
+    growth_time		INT,
+    natural_gift_power  INT,
+    size	INT
 );
 
 
