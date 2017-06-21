@@ -1,4 +1,8 @@
 module.exports = function (app, connection, P) {
+<<<<<<< HEAD
+=======
+    var bcrypt = require("bcrypt-nodejs");
+>>>>>>> origin/master
 
     app.post('/add2BattleHistory', function(req, res) {
         var bid = req.body.bid;
@@ -170,7 +174,7 @@ module.exports = function (app, connection, P) {
         var typeList = ['fire', 'grass', 'fighting', 'water', 'psychic', 'electric', 'normal', 'ice', 'poison', 'ground', 'flying',
                         'bug', 'rock', 'ghost', 'dragon', 'dark', 'steel', 'fairy']
         if (typeList.includes(type)) {
-            connection.query('CALL get_pokemon_by_type(' + "'" + type + "'" + ');', function (err, rows) {
+            connection.query('CALL getAllTypes(' + "'" + type + "'" + ');', function (err, rows) {
                  if (err) {
                      res.sendStatus(404)
                  }
@@ -218,6 +222,15 @@ module.exports = function (app, connection, P) {
         })
     })
 
+    app.get('/searchBerry', function (req, res) {
+        connection.query('CALL getAllBerries();', function (err, rows) {
+             if (err) {
+                 res.sendStatus(404)
+             }
+             res.json(rows)
+         })
+    })
+
     // function getAllName() {
     //     for (i = 300; i < 310; i++) {
     //         P.getPokemonByName(i)
@@ -235,4 +248,41 @@ module.exports = function (app, connection, P) {
     //             })
     //     }
     // }
+
+    // function getAllName(i) {
+    //         setTimeout(function () {
+    //             P.getBerryByName(i)
+    //                 .then(function (response) {
+    //                     // if (response.types[1] === undefined) {
+    //                         var sqlAddCommand = 'CALL addBerry(' + response.id + ',' + "'" + response.name + "'" + ',' + response.growth_time + ',' + response.natural_gift_power + ',' + response.size + ');'
+    //                         connection.query(sqlAddCommand, function (err, rows) {
+    //                             if (err) {
+    //                                 console.log('err')
+    //                             }
+    //                             console.log(i)
+    //                         })
+    //                     // }
+    //                     // } else {
+    //                     //     var sqlDoubleAdd1 = 'CALL addPokeType(' + i + ',' + "'" + response.types[0].type.name + "'" + ');'
+    //                     //     connection.query(sqlDoubleAdd1, function (err, rows) {
+    //                     //         if (err) {
+    //                     //             console.log('err')
+    //                     //         }
+    //                     //         console.log(i)
+    //                     //     })
+    //                     //     var sqlDoubleAdd2 = 'CALL addPokeType(' + i + ',' + "'" + response.types[1].type.name + "'" + ');'
+    //                     //     connection.query(sqlDoubleAdd2, function (err, rows) {
+    //                     //         if (err) {
+    //                     //             console.log('err')
+    //                     //         }
+    //                     //         console.log(i)
+    //                     //     })
+    //                     // }
+    //                     i += 1
+    //                     getAllName(i)
+    //                 })
+    //         }, 4000)
+    // }
+    //
+    // getAllName(65)
 }

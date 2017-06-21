@@ -6127,7 +6127,8 @@ button.close {
   border-left: groove;
   border-width: 1pt;
   background: none;
-  color: black; }
+  color: black;
+  border-radius: 0; }
   .login-btn:hover {
     background-color: #2e86c1;
     border-color: #2e86c1; }
