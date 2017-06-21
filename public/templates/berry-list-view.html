@@ -1,0 +1,53 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="pull-right">
+            <a href="#!/login" class="btn btn-info login-btn">Login</a>
+            <a href="https://github.com/ethancwb/cs3200_Final_Project" class="btn btn-info login-btn" style="right: 200px;">Our Github</a>
+            <a href="#!/login" class="btn btn-info login-btn" style="right: 400px;">Resources</a>        </div>
+        <div class="pull-left">
+            <a href="#"><img ng-src="static/source_image/Pokemon-Fightt.png" class="top-logo"></img></a>
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+    <div class="content-container list-view-container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div ng-show="model.error" class="alert alert-danger" style="margin-top: 30px;">{{model.error}}</div>
+                <div class="flickr-search-container">
+                    <div class="box">
+                      <div class="container-search-field">
+                          <a class="icon" ng-click="model.search(model.val)"><i class="fa fa-search"></i></a>
+                          <input type="search" id="search" ng-model="model.val" placeholder="Search by Type/Pokedex_Id/Name/Berry" />
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="table table-striped table-responsive">
+                  <thead>
+                    <tr>
+                      <th>Image</th>
+                      <th>Berry_Name</th>
+                      <th>Berry No.</th>
+                      <th>Growth_time</th>
+                      <th>Natural_gift_power</th>
+                      <th>Size</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="berry in model.berries" ng-click="model.berryClickPanel(berry.berry_name)">
+                          <td><img ng-src="https://raw.githubusercontent.com/msikma/pokesprite/master/icons/berry/{{ berry.berry_name }}.png"></td>
+                          <td>{{ berry.berry_name }}</td>
+                          <td>{{ berry.berry_id }}</td>
+                          <td>{{ berry.growth_time }}</td>
+                          <td>{{ berry.natural_gift_power }}</td>
+                          <td>{{ berry.size }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
