@@ -104,6 +104,13 @@
                         })
         }
     }
+    
+    function getBerries() {
+    return $http.get('/searchBerry')
+                .then(function (response) {
+                    model.berries = response.data[0]
+                })
+    }
 
     function SearchPokemonController ($http, $routeParams, $location, $window, $scope) {
         var model = this;

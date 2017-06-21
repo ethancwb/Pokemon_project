@@ -1,8 +1,6 @@
 module.exports = function (app, connection, P) {
-<<<<<<< HEAD
-=======
+
     var bcrypt = require("bcrypt-nodejs");
->>>>>>> origin/master
 
     app.post('/add2BattleHistory', function(req, res) {
         var bid = req.body.bid;
