@@ -27,15 +27,16 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS regisration;
 
 DELIMITER $$
-CREATE PROCEDURE regisration(uid INT, user_name VARCHAR(45), user_password VARCHAR(255))
+CREATE PROCEDURE regisration(user_name VARCHAR(45), user_password VARCHAR(255))
 BEGIN
 
-INSERT INTO users (user_id, user_type, user_name, user_password, tier) VALUES (uid, 'regular', user_name, user_password, 0);
-SELECT user_id FROM users u WHERE u.user_id = uid;
+INSERT INTO users (user_type, user_name, user_password, tier) VALUES ('regular', user_name, user_password, 0);
+SELECT user_id FROM users u WHERE u.user_name = user_name;
 
 
 END $$
 DELIMITER ;
+
 
 -- find_user_by_credential -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS find_user_by_credential;
