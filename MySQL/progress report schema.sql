@@ -4,6 +4,7 @@
 -- USE m4wf5ifdowrsox28;
 
 DROP TABLE IF EXISTS owns;
+DROP TABLE IF EXISTS admin;
 DROP TABLE IF EXISTS battle_history;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS pokemons;
@@ -11,7 +12,7 @@ DROP TABLE IF EXISTS poke_types;
 
 CREATE TABLE users
 (
-	user_id						INT										PRIMARY KEY  				AUTO_INCREMENT,
+	user_id						INT										PRIMARY KEY,
     user_type					ENUM('regular', 'admin')		NOT NULL,
     user_name					VARCHAR(45)					NOT NULL,
     user_password 			VARCHAR(255)					NOT NULL,
@@ -21,7 +22,7 @@ CREATE TABLE users
 
 CREATE TABLE pokemons
 (
-	poke_id 						INT 						AUTO_INCREMENT 			PRIMARY KEY,
+	poke_id 						INT 						PRIMARY KEY,
     poke_name 				VARCHAR(45)  	NOT NULL,
     hp								INT 						NOT NULL,
     attack 							INT 						NOT NULL,

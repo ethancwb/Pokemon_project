@@ -205,10 +205,6 @@ module.exports = function (app, connection, P) {
     app.post('/registeration', function(req, res) {
         var username = req.body.username;
         var password = bcrypt.hashSync(req.body.password);
-<<<<<<< HEAD
-=======
-        // password = req.body.password;
->>>>>>> origin/master
         connection.query('CALL regisration(' + "'" + username + "', " + "'" + password + "'" + ');',function(err,rows) {
             if (err) {
                 res.sendStatus(404)
