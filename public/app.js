@@ -147,10 +147,14 @@ module.exports = function (app, connection, P) {
              if (err) {
                  res.sendStatus(404)
              }
-             if (bcrypt.compareSync(password, rows[0][0].user_password)) {
-                 res.json(rows)
-             } else {
+             if (rows[0].length === 0) {
                  res.sendStatus(404)
+             } else {
+                 if (bcrypt.compareSync(password, rows[0][0].user_password)) {
+                     res.json(rows)
+                 } else {
+                     res.sendStatus(404)
+                 }
              }
          })
     });
@@ -176,7 +180,6 @@ module.exports = function (app, connection, P) {
                  if (err) {
                      res.sendStatus(404)
                  }
-                 console.log(rows)
                  res.json(rows)
              })
         } else {
@@ -185,7 +188,6 @@ module.exports = function (app, connection, P) {
                      if (err) {
                          res.sendStatus(404)
                      }
-                     console.log(rows)
                      res.json(rows)
                  })
             } else {
@@ -193,7 +195,6 @@ module.exports = function (app, connection, P) {
                      if (err) {
                          res.sendStatus(404)
                      }
-                     console.log(rows)
                      res.json(rows)
                  })
             }
@@ -231,69 +232,4 @@ module.exports = function (app, connection, P) {
              res.json(rows)
          })
     })
-
-    // app.post('/api/getTypeForId', function (req, res) {
-    //     var id = req.body.id
-    //     connection.query('CALL getTypesForId(' + id + ');', function (err, rows) {
-    //         if (err) {
-    //             res.sendStatus(404)
-    //         }
-    //         res.json(rows)
-    //     })
-    // })
-
-    // function getAllName() {
-    //     for (i = 300; i < 310; i++) {
-    //         P.getPokemonByName(i)
-    //             .then(function (response) {
-    //                 var sqlAddCommand = "INSERT INTO pokemons(poke_id, poke_name, hp, attack, defense, sp_attack, sp_defense, speed, poke_type) VALUES (" +  response.id + "," + "'"
-    //                 + response.name + "'" + "," + response.stats[0].base_stat + "," + response.stats[1].base_stat + "," + response.stats[2].base_stat + "," + response.stats[3].base_stat + "," + response.stats[4].base_stat
-    //                 + "," + response.stats[5].base_stat + "," + "'" + response.types[0].type.name + "'" + ")"
-    //                 connection.query(sqlAddCommand, function (err, rows) {
-    //                     if (err) {
-    //                         console.log('err')
-    //                     }
-    //                     console.log(rows)
-    //                 })
-    //                 // console.log(result[i])
-    //             })
-    //     }
-    // }
-
-    // function getAllName(i) {
-    //         setTimeout(function () {
-    //             P.getBerryByName(i)
-    //                 .then(function (response) {
-    //                     // if (response.types[1] === undefined) {
-    //                         var sqlAddCommand = 'CALL addBerry(' + response.id + ',' + "'" + response.name + "'" + ',' + response.growth_time + ',' + response.natural_gift_power + ',' + response.size + ');'
-    //                         connection.query(sqlAddCommand, function (err, rows) {
-    //                             if (err) {
-    //                                 console.log('err')
-    //                             }
-    //                             console.log(i)
-    //                         })
-    //                     // }
-    //                     // } else {
-    //                     //     var sqlDoubleAdd1 = 'CALL addPokeType(' + i + ',' + "'" + response.types[0].type.name + "'" + ');'
-    //                     //     connection.query(sqlDoubleAdd1, function (err, rows) {
-    //                     //         if (err) {
-    //                     //             console.log('err')
-    //                     //         }
-    //                     //         console.log(i)
-    //                     //     })
-    //                     //     var sqlDoubleAdd2 = 'CALL addPokeType(' + i + ',' + "'" + response.types[1].type.name + "'" + ');'
-    //                     //     connection.query(sqlDoubleAdd2, function (err, rows) {
-    //                     //         if (err) {
-    //                     //             console.log('err')
-    //                     //         }
-    //                     //         console.log(i)
-    //                     //     })
-    //                     // }
-    //                     i += 1
-    //                     getAllName(i)
-    //                 })
-    //         }, 4000)
-    // }
-    //
-    // getAllName(65)
 }

@@ -12,7 +12,6 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 app.listen(process.env.PORT || 8080, function () {
-    console.log('listen to port 8080')
 })
 
 app.use(express.static('public'))
@@ -35,20 +34,3 @@ var connection = db.createConnection("mysql://m56vff77rb877g2t:cby2rja1vlopxflt@
 connection.connect()
 
 require('./public/app.js')(app, connection, P)
-
-// app.get('/', function (req, res) {
-//     P.getPokemonByName('eevee').then(function (response) {
-//          console.log(response);
-//        })
-//        .catch(function(error) {
-//          console.log('There was an ERROR: ', error);
-//       });
-//     res.sendFile(path.join(__dirname, '/public/index.html'))
-// })
-
-// var icon = PkSpr.decorate({slug: "pikachu"}); // see docs for more attributes
-// console.log(icon);
-// connection.query("SELECT * FROM pokemons", function (err, result) {
-//     if (err) throw err;
-//     console.log(result);
-// });
