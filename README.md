@@ -95,6 +95,17 @@ table of recording user_id, user_name, user_password, user_level. Used “bcrypt
 <p>And since we are in summer session, we don’t really have too much time on developing the project. If more time is given, we will definitely not use Angularjs as the front end since it is outdated. We will much prefer to use it as an opportunity to learn ReactJs or Angular 2. 
 Also, because of the limited time, we didn’t fully follow the Best Practices. This will make our code harder for further maintenance or improvements. Although our code work fine, there are still a lot of places that we can improve to to achieve a better efficiency. </p>
 
+<p>At last, we didn’t fully implement the web application in the manner of mobile-first design. We didn’t start the UI design from mobile which leads to a huge problem in the end which wasted us a lot of time to make it responsive(and it is not working for one page still). This taught us a lesson that we should “ALWAYS START WITH MOBILE VIEW!!”. 
+ 
+### Related sources: <br />
+<p>Pokemon Sprites: https://github.com/msikma/pokesprite</p>
+<p>Pokemon API Sprites: https://github.com/PokeAPI/sprites</p>
+<p>Pokemon API Promise-v2: https://github.com/PokeAPI/pokedex-promise-v2</p>
+<p>Pokeapi.com: https://pokeapi.co/</p>
+<p>PokeDex Official site: http://www.pokemon.com/us/pokedex</p>
+<p>Bulbapedia: https://bulbapedia.bulbagarden.net/wiki</p>
+
+
 
 
 
