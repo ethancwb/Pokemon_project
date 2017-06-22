@@ -39,6 +39,29 @@ we also connect it to a remote MySQL database hosting server. <p>
 
 ### UML: ![UML](https://github.com/ethancwb/cs3200_Final_Project/blob/master/UML.png?raw=true) <br />
 
+### Schema: <br />
+1. Users: 
+table of recording user_id, user_name, user_password, user_level. Used “bcrypt library” for user password, which hashed the user_password before storing it into the database. In this case, only the users know what is their password. For people who are managing the database can only see its hash value. For example the user_password, “1”, in our database is stored as “$2a$10$IskFrTUQ563DPpPkRfYAyOGT0d5jdsjbtZZ72FM12EWShecKfSyXG”. <br />
+ 
+2. Pokemons: This table is for storing basic pokemon stats (name, id, type, attack, defense, speed) in order to perform all the other functionalities. Used “pokeapi” (https://pokeapi.co/) for loading basic stats all the 721 pokemons. Used “pokemon sprites” (https://github.com/msikma/pokesprite) and “pokemon api sprites” (https://github.com/PokeAPI/sprites) for loading images. <br />
+ 
+3. Type_table: This table stores all the pokemon types. <br />
+ 
+4. Poke_types: For showing some pokemons may have multiple types, we need this table to store the types associating with the poke_ids of which pokemons are having this type in order to generate a many to many relationship. <br />
+ 
+5. Type_weak_against: This table stores pokemon types that a specific type is weak against. By having this information, we could use it for future battling algorithm optimization. <br />
+
+6. Type_strong_against: This table stores pokemon types that a specific type is strong against. It has the same functionalities as the type_weak_against. <br />
+ 
+7. Owns: Users and pokemons many to many relationship, which stores the user_id, and all the pokemon stats, it order to represent user's’ pokemon lists. <br />
+ 
+8. Battle_history: As the its name described, this table stores all the battle records. When users have some number of wins could result in a level up. Currently, we set every 10 wins for 1 level up. <br />
+ 
+9. Berry: stores all the berries which are pokemon foods, which we also loaded from third party APIs. This table could be used for future implementation. Such as recovering a pokemon which has low HP. <br />
+
+
+
 ### Functions: <br />
+
 
 
