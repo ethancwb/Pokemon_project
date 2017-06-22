@@ -189,7 +189,6 @@
         function register (username, password, rePassword) {
             var url = '/registeration';
             var user = {
-                uid: (new Date).getTime(),
                 username: username,
                 password: password
             };
