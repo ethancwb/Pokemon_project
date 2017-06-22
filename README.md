@@ -89,5 +89,13 @@ table of recording user_id, user_name, user_password, user_level. Used “bcrypt
 25. Update_user: to update the user’s profile. <br />
 
 
+### Lessons Learned: <br />
+<p>At the start of the project, our initial goal was just build a online Pokedex-like database that helps users to search for pokemon datas. The user and battle simulation part was our optional goal. But when we actually begin to develop this project, we feel really enthusiastic about it and decided to move further from on our original scope. Although this project took us almost a week effort to reach the current state, but we consider it as a great opportunity to enhance our knowledge on both MySQL database as well as web development. </p>
+ 
+<p>And since we are in summer session, we don’t really have too much time on developing the project. If more time is given, we will definitely not use Angularjs as the front end since it is outdated. We will much prefer to use it as an opportunity to learn ReactJs or Angular 2. 
+Also, because of the limited time, we didn’t fully follow the Best Practices. This will make our code harder for further maintenance or improvements. Although our code work fine, there are still a lot of places that we can improve to to achieve a better efficiency. </p>
+
+
+
 
 
