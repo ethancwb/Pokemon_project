@@ -26,9 +26,11 @@ instead of a static page. </p>
 made it possible for the server side to understand and compile JavaScript and
 in addition, we used express.js framework to make it clearer and make the code
 more organized. And for the database, we used MySQL and because it is a web-app,
-we also connect it to a remote MySQL database hosting server.
+we also connect it to a remote MySQL database hosting server. <p>
+<br />
 #### Miscellaneous: <br />
-<p> Besides the technologies mentioned above, there are also a lot of packages/libraries that help the application development. “Bcrypt-nodejs” for user password encryption, “body-parser” for better communication between frontend and backend(passing JSON), ‘pokedex-promist-v2” for getting data from pokemon API and ‘mysql’ for nodejs to connect and pass ad hoc queries or calling mysql procedures. Also we used “nodemon” as a development tool that will automatically restart the server when detects a change in backend. Further details are inside “package.json”.
+<p> Besides the technologies mentioned above, there are also a lot of packages/libraries that help the application development. “Bcrypt-nodejs” for user password encryption, “body-parser” for better communication between frontend and backend(passing JSON), ‘pokedex-promist-v2” for getting data from pokemon API and ‘mysql’ for nodejs to connect and pass ad hoc queries or calling mysql procedures. Also we used “nodemon” as a development tool that will automatically restart the server when detects a change in backend. Further details are inside “package.json”.<p> 
+<br />
 
 
 
