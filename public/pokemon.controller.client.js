@@ -189,13 +189,13 @@
         function register (username, password, rePassword) {
             var url = '/registeration';
             var user = {
-                uid: (new Date).getTime(),
                 username: username,
                 password: password
             };
             return $http.post(url, user)
                 .then(regisration, error)
                 function regisration (response) {
+                    console.log(response.data)
                     $location.url("/user/" + response.data[0][0].user_id);
                 }
                 function error(err) {
