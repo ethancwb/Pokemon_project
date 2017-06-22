@@ -45,5 +45,10 @@
                         controller:'UserController',
                         controllerAs: 'model'
                     })
+                    .when('/resources', {
+                        templateUrl:'templates/resources.html',
+                        controller:'UserController',
+                        controllerAs: 'model'
+                    })
         }
 })()
