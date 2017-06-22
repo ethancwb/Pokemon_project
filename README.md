@@ -61,7 +61,33 @@ table of recording user_id, user_name, user_password, user_level. Used “bcrypt
 
 
 
-### Functions: <br />
+### Functions & Procedures: <br />
+1. AddBattleHistory: to record a battle result, which takes in the battle_id, user_id, and game_result. It also updated the user_level when this user have multiple of 10 wins. <br />
+2. AddBerry: to add berrry information into database, used for third party API loading. <br />
+3. AddNewOwn: to add a new user-pokemon relationship record, by taking randomized values based on user level number from backend. In other words. The higher level this user has, the stronger pokemon he/she can catch. <br />
+4. AddPokeType: which adds a new pokemon type for initializing database. <br />
+5. AddStrongAgainst: which adds pokemon types relationship for initializing databse. <br />
+6. Delete_pokemon: to delete a record from the user-pokemon relationship. In other words, it removes a pokemon from the user’s pokemon collections. <br />
+7. Find_user_by_credential: which verified user_name and user_password in MySQL database. Returned the user information if values are matched, in order to render user profiles in front end. <br />
+8. GenerateRandomTeam: in order to perform the user-computer battling feature, this procedure helps to generate a three-pokemon team by taking three random poke_id from backend. <br />
+9. Get_allBerries: to perform the search berry feature, which returns all the berry records in the database. <br />
+10. Get_all_pokemons: to retrieve all the pokemons of a specific user, in order to render user’s pokemon collection in front end. <br />
+11. GetAllTypes: since some pokemons have multiple types, and MySQL can not store a list in a column, so we would use this function to join multiple tables together in order to perform our search pokemon by types feature. <br />
+12. Get_favorite_pokemon_by_uid: to retrieve all the user’s favorite pokemons. In order to render the user’s battle team in front end. <br />
+13. GetInforTableById: to retrieve all the pokemon information in order to perform the search by poke_id feature. <br />
+14. GetInforTableByname: to retrieve all the pokemon information in order to perform the search by poke_name feature. <br />
+15. Get_pokemon_by_id: to retrieve a specific pokemon by its poke_id. <br />
+16. Get_pokemon_by_name: to retrieve a specific pokemon by its poke_name. <br />
+17. Get_pokemon_by_type: to retrieve a list of pokemons by specifying a poke_type. <br />
+18. GetTypesForId: to retrieve all the types of a specific pokemon. <br />
+19. GetUserById: to retrieve all the user information by giving a user_id. <br />
+20. Get_user_by_name: to retrieve all the user information by giving a user_name. <br />
+21. Regisration: to register a user. <br />
+22. SearchStrongAgainst: return a list of types that the given type is strong against. <br />
+23. SearchWeakAgainst: return a list of types that the give type is weak against. <br />
+24. Update_favorite: for users to dynamically choose or unchoose a pokemon to be his/her favorite pokemon. <br />
+25. Update_user: to update the user’s profile. <br />
+
 
 
 
