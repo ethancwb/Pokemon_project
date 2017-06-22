@@ -17,8 +17,8 @@
 }
 
 .top-logo {
-    height: 65px;
-    width: 240px;
+    height: 80px;
+    width: 300px;
 }
 
 .bottom-logo {
@@ -60,10 +60,10 @@
 
 .login-btn {
     position: absolute;
-    height: 65px;
+    height: 80px;
     width: 200px;
     right: 0px;
-    padding-top: 15px;
+    padding-top: 25px;
     border: none;
     border-left: groove;
     border-width: 1pt;
@@ -280,5 +280,6 @@
 }
 
 .status-container {
+    margin-top: -10%;
     margin-left: 10px;
 }

@@ -79,7 +79,9 @@
 }
 
 .navbar {
-    background-color: rgb(255, 255, 255) !important;
+    background-color: rgba(249, 231, 159, 0.8) !important;
+    height: 80px;
+    border: none;
 }
 
 .element-button {
@@ -91,7 +93,6 @@
 
 .element-image-first {
     margin-top: 40px;
-    padding-left: 15%;
     width: 200px;
     height: auto;
     &:hover {
@@ -110,7 +111,6 @@
 
 .element-image {
     margin-top: 40px;
-    padding-left: 15%;
     width: 200px;
     height: auto;
     &:hover {

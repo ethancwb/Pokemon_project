@@ -5934,7 +5934,9 @@ button.close {
   overflow: hidden; }
 
 .navbar {
-  background-color: white !important; }
+  background-color: rgba(249, 231, 159, 0.8) !important;
+  height: 80px;
+  border: none; }
 
 .element-button:hover .element-expansion {
   visibility: visible;
@@ -5942,7 +5944,6 @@ button.close {
 
 .element-image-first {
   margin-top: 40px;
-  padding-left: 15%;
   width: 200px;
   height: auto; }
   .element-image-first:hover {
@@ -5958,7 +5959,6 @@ button.close {
 
 .element-image {
   margin-top: 40px;
-  padding-left: 15%;
   width: 200px;
   height: auto; }
   .element-image:hover {
@@ -6084,8 +6084,8 @@ button.close {
   height: 10vh; }
 
 .top-logo {
-  height: 65px;
-  width: 240px; }
+  height: 80px;
+  width: 300px; }
 
 .bottom-logo {
   background-size: contain;
@@ -6119,10 +6119,10 @@ button.close {
 
 .login-btn {
   position: absolute;
-  height: 65px;
+  height: 80px;
   width: 200px;
   right: 0px;
-  padding-top: 15px;
+  padding-top: 25px;
   border: none;
   border-left: groove;
   border-width: 1pt;
@@ -6279,4 +6279,5 @@ button.close {
     margin-top: 0; }
 
 .status-container {
+  margin-top: -10%;
   margin-left: 10px; }
