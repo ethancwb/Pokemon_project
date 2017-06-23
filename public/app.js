@@ -203,10 +203,10 @@ module.exports = function (app, connection, P) {
     });
 
     app.post('/registeration', function(req, res) {
-        var uid = req.body.uid;
         var username = req.body.username;
         var password = bcrypt.hashSync(req.body.password);
-        connection.query('CALL regisration(' + uid + ", '" + username + "', " + "'" + password + "'" + ');',function(err,rows) {
+        // password = req.body.password;
+        connection.query('CALL regisration(' + "'" + username + "', " + "'" + password + "'" + ');',function(err,rows) {
             if (err) {
                 res.sendStatus(404)
             }
